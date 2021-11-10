@@ -25,13 +25,19 @@ const NavbarSection = () => {
         {/* bg='light'  */}
         <Container>
           <Navbar.Brand>
-            <Link to='/' className='mochiy text-2xl hover:text-yellow-700 hover:text-opacity-50'>
+            <Link
+              to='/'
+              className='mochiy text-2xl hover:text-yellow-700 hover:text-opacity-50'
+            >
               Claytivity
             </Link>
           </Navbar.Brand>
-          <Navbar.Toggle aria-controls='basic-navbar-nav' />
-          <Navbar.Collapse id='basic-navbar-nav'>
-            <Nav className='mx-auto'>
+          <Navbar.Toggle aria-controls='basic-navbar-nav'/>
+          <Navbar.Collapse
+            className='flex flex-col md:flex-row justify-center items-center pb-2'
+            id='basic-navbar-nav'
+          >
+            <Nav className='mx-auto flex flex-col md:flex-row justify-center items-start'>
               <Nav.Link>
                 <Link
                   activeS
