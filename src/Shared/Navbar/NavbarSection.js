@@ -19,13 +19,13 @@ const NavbarSection = () => {
   return (
     <div className='sticky top-0 z-50'>
       <Navbar
-        className='bg-gray-100 bg-opacity-60 backdrop-filter backdrop-blur-md'
+        className='bg-gray-50 bg-opacity-70 backdrop-filter backdrop-blur-md'
         expand='lg'
       >
         {/* bg='light'  */}
         <Container>
           <Navbar.Brand>
-            <Link to='/' className='mochiy text-2xl hover:text-yellow-700'>
+            <Link to='/' className='mochiy text-2xl hover:text-yellow-700 hover:text-opacity-50'>
               Claytivity
             </Link>
           </Navbar.Brand>
@@ -51,10 +51,10 @@ const NavbarSection = () => {
               </Nav.Link>
               <Nav.Link>
                 <Link
-                  to='/'
+                  to='/all-products'
                   className='mr-4 text-black border-b-2 border-transparent hover:border-yellow-700'
                 >
-                  Explore All
+                  Explore Products
                 </Link>
               </Nav.Link>
               {/* <NavDropdown title='Dropdown' id='basic-nav-dropdown'>
@@ -129,7 +129,7 @@ const NavbarSection = () => {
                       </div>
                     </div>
                     <h4 className='text-black my-2 md:my-0'>
-                      {/* {user?.displayName} */}
+                      {user?.displayName}
                     </h4>
                   </Nav.Link>
                 </>

@@ -11,7 +11,7 @@ const Slider = () => {
       <Carousel fade>
         <Carousel.Item interval={4000}>
           <div className='slide1 lg:w-screen lg:min-h-screen'>
-            <div className='slide1-content min-h-screen pl-8 md:pl-20 pr-20 py-20 flex flex-col justify-end bg-gray-800 bg-opacity-40'>
+            <div className='slide1-content min-h-screen pl-8 md:pl-20 pr-20 py-20 flex flex-col justify-end bg-gray-800 bg-opacity-40 backdrop-filter backdrop-blur-sm'>
               <h3 className='text-lg md:text-2xl font-bold text-black pb-4'>
                 <Typical
                   className='text-yellow-900 text-opacity-80'
@@ -44,7 +44,7 @@ const Slider = () => {
         </Carousel.Item>
         <Carousel.Item interval={4000}>
           <div className='slide2 lg:w-screen lg:min-h-screen'>
-            <div className='slide2-content ml-auto min-h-screen pl-8 md:pl-20 pr-20 py-20 flex flex-col justify-end bg-gray-800 bg-opacity-40'>
+            <div className='slide2-content ml-auto min-h-screen pl-8 md:pl-20 pr-20 py-20 flex flex-col justify-end bg-gray-800 bg-opacity-40 backdrop-filter backdrop-blur-sm'>
               <h3 className='text-lg md:text-2xl font-bold text-black pb-4'>
                 <Typical
                   className='text-yellow-900 text-opacity-80'
@@ -74,7 +74,7 @@ const Slider = () => {
         </Carousel.Item>
         <Carousel.Item interval={4000}>
           <div className='slide3 lg:w-screen lg:min-h-screen'>
-            <div className='slide3-content min-h-screen pl-8 pr-20 py-20 flex flex-col justify-end items-end lg:pr-48 md:pr-48 bg-gray-800 bg-opacity-40'>
+            <div className='slide3-content min-h-screen pl-8 pr-20 py-20 flex flex-col justify-end items-end lg:pr-48 md:pr-48 bg-gray-800 bg-opacity-40 backdrop-filter backdrop-blur-sm'>
               <h3 className='text-lg md:text-2xl font-bold text-black pb-4'>
                 <Typical
                   className='text-yellow-900 text-opacity-80'

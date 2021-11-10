@@ -1,0 +1,25 @@
+.footer_background{
+    background-image: url(https://i.ibb.co/3zq9hJx/bl11-1024x1024.jpg);
+    /* background-image: url(https://i.ibb.co/dr99R6R/pexels-photo-3760983.jpg); */
+    background-position: center;
+    background-size: cover;
+}
+
+.footer_container{
+    clip-path: polygon(16% 0, 100% 16%, 100% 100%, 0 100%, 0 14%);
+}
+
+.brand_logo{
+    position: relative;
+    top: 6vw;
+    left: 43%;
+}
+
+@media only screen and (max-width: 750px) {
+    .brand_logo{
+        display: none;
+    }
+    .footer_container{
+        clip-path: polygon(6% 0, 100% 6%, 100% 100%, 0 100%, 0 4%);
+    }
+}

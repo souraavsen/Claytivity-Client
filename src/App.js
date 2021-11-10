@@ -5,10 +5,12 @@ import NavbarSection from './Shared/Navbar/NavbarSection'
 import AuthProvider from './Context/AuthProvider';
 import SignUp from "./Pages/Signup/Signup";
 import Signin from "./Pages/Signin/Signin";
+import ExploreAllProducts from './Pages/ExploreAllProducts/ExploreAllProducts';
+import Footer from './Shared/Footer/Footer';
 
 function App() {
   return (
-    <div className='Noto'>
+    <div className='Noto bg-gray-100'>
       <Router>
         <AuthProvider>
           <NavbarSection></NavbarSection>
@@ -19,10 +21,14 @@ function App() {
             <Route path='/signin'>
               <Signin></Signin>
             </Route>
+            <Route path='/all-products'>
+              <ExploreAllProducts></ExploreAllProducts>
+            </Route>
             <Route path='/'>
               <Home></Home>
             </Route>
           </Switch>
+          <Footer></Footer>
         </AuthProvider>
       </Router>
     </div>
