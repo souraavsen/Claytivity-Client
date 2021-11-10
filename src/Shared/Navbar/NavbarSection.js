@@ -2,6 +2,7 @@ import React from "react";
 import { Container, Nav, Navbar } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import useralogo from "../../Images/userlogo.png";
+import logo from "../../Images/caltivity-logo.png";
 import useAuth from "../../Hooks/useAuth";
 
 const NavbarSection = () => {
@@ -27,12 +28,13 @@ const NavbarSection = () => {
           <Navbar.Brand>
             <Link
               to='/'
-              className='mochiy text-2xl hover:text-yellow-700 hover:text-opacity-50'
+              className='mochiy text-2xl hover:text-yellow-700 hover:text-opacity-50 flex items-center'
             >
-              Claytivity
+              <img className="w-12 mr-2" src={logo} alt='' />
+              <p>Claytivity</p>
             </Link>
           </Navbar.Brand>
-          <Navbar.Toggle aria-controls='basic-navbar-nav'/>
+          <Navbar.Toggle aria-controls='basic-navbar-nav' />
           <Navbar.Collapse
             className='flex flex-col md:flex-row justify-center items-center pb-2'
             id='basic-navbar-nav'
