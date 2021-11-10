@@ -1,0 +1,54 @@
+.slide1{
+    background-image: url(https://i.ibb.co/YPrTyPG/1.jpg);
+    /* background-image: url(https://i.ibb.co/d6fDRkb/1-1.jpg); */
+    background-repeat: no-repeat;
+    background-size:contain;
+}
+
+.slide2{
+    /* background-image: url(https://i.ibb.co/r21j6T9/Plants-and-Pottery.webp); */
+    background-image: url(https://i.ibb.co/J21j9r9/apmenuitem-ihtml-5.jpg);
+    background-repeat: no-repeat;
+    background-size:cover;
+}
+
+.slide3{
+    background-image: url(https://i.ibb.co/d6fDRkb/1-1.jpg);
+    background-repeat: no-repeat;
+    background-size:contain;
+}
+
+.slide1-content{
+    clip-path: polygon(0 30%, 60% 30%, 50% 100%, 0% 100%);
+}
+
+.slide2-content{
+    float: right;
+    clip-path: polygon(0 0, 69% 0, 48% 100%, 0% 100%);
+}
+
+.slide3-content{
+    clip-path: polygon(43% 30%, 100% 30%, 100% 100%, 28% 100%);
+    
+}
+
+@media only screen and (max-width: 750px) {
+
+    /* .slide2{
+    background-image: url(https://i.ibb.co/YPrTyPG/1.jpg);
+    /* background-image: url(https://i.ibb.co/r21j6T9/Plants-and-Pottery.webp); */
+    /* background-image: url(https://i.ibb.co/J21j9r9/apmenuitem-ihtml-5.jpg); */
+    /* background-repeat: no-repeat;
+    background-size:cover;
+}  */
+
+.slide1-content{
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+}
+.slide2-content{
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+}
+.slide3-content{
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+}
+}
