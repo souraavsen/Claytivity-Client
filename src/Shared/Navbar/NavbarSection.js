@@ -43,7 +43,7 @@ const NavbarSection = () => {
               <Nav.Link>
                 <Link
                   activeS
-                  to='/'
+                  to='/dashboard'
                   className='mr-4 text-black border-b-2 border-transparent hover:border-yellow-700'
                 >
                   Dashboard
@@ -65,19 +65,6 @@ const NavbarSection = () => {
                   Explore Products
                 </Link>
               </Nav.Link>
-              {/* <NavDropdown title='Dropdown' id='basic-nav-dropdown'>
-                  <NavDropdown.Item href='#action/3.1'>Action</NavDropdown.Item>
-                  <NavDropdown.Item href='#action/3.2'>
-                    Another action
-                  </NavDropdown.Item>
-                  <NavDropdown.Item href='#action/3.3'>
-                    Something
-                  </NavDropdown.Item>
-                  <NavDropdown.Divider />
-                  <NavDropdown.Item href='#action/3.4'>
-                    Separated link
-                  </NavDropdown.Item>
-                </NavDropdown> */}
             </Nav>
             <Nav>
               {user?.email && (
@@ -97,13 +84,6 @@ const NavbarSection = () => {
                   </Link> */}
 
                   <Nav.Link className='flex flex-col md:flex-row justify-center md:justify-between items-center mr-2'>
-                    {/* <img
-                      title={user?.displayName}
-                      className='rounded-full mr-2'
-                      src={userimg}
-                      width='40px'
-                      alt='img'
-                    /> */}
                     <div class='dropdown'>
                       <img
                         title={user?.displayName}
@@ -118,7 +98,7 @@ const NavbarSection = () => {
                         aria-expanded='false'
                       />
                       <div
-                        class='dropdown-menu dropdown-menu-right py-2 mt-2 shadow-sm bg-gray-100 bg-opacity-60 backdrop-filter backdrop-blur-md'
+                        class='dropdown-menu dropdown-menu-right py-2 mt-2 shadow-sm bg-gray-50 bg-opacity-80 backdrop-filter backdrop-blur-md'
                         aria-labelledby='dropdownMenu2'
                       >
                         <button
@@ -136,9 +116,9 @@ const NavbarSection = () => {
                         </button>
                       </div>
                     </div>
-                    <h4 className='text-black my-2 md:my-0'>
+                    {/* <h4 className='text-black my-2 md:my-0'>
                       {user?.displayName}
-                    </h4>
+                    </h4> */}
                   </Nav.Link>
                 </>
               )}

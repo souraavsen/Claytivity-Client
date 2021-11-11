@@ -7,6 +7,8 @@ import SignUp from "./Pages/Signup/Signup";
 import Signin from "./Pages/Signin/Signin";
 import ExploreAllProducts from './Pages/ExploreAllProducts/ExploreAllProducts';
 import Footer from './Shared/Footer/Footer';
+import Dashboard from './Pages/Dashboard/Dashboard';
+import NotFound from "./Pages/NotFound/NotFound";
 
 function App() {
   return (
@@ -24,8 +26,14 @@ function App() {
             <Route path='/all-products'>
               <ExploreAllProducts></ExploreAllProducts>
             </Route>
-            <Route path='/'>
+            <Route path='/dashboard'>
+              <Dashboard></Dashboard>
+            </Route>
+            <Route exact path='/'>
               <Home></Home>
+            </Route>
+            <Route path='*'>
+              <NotFound></NotFound>
             </Route>
           </Switch>
           <Footer></Footer>

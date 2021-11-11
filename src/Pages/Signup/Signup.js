@@ -64,35 +64,35 @@ const Signup = () => {
           </span>
         </p>
         <form
-          class='w-full max-w-lg mx-auto px-4'
+          className='w-full max-w-lg mx-auto px-4'
           onSubmit={(e) => {
             handleForm(e);
           }}
         >
-          <div class='flex flex-wrap -mx-3 mb-6'>
-            <div class='w-11/12 lg:w-full mx-auto md:w-1/2 px-3 mb-6 md:mb-0'>
+          <div className='flex flex-wrap -mx-3 mb-6'>
+            <div className='w-11/12 lg:w-full mx-auto md:w-1/2 px-3 mb-6 md:mb-0'>
               <label
-                class='block tracking-wide text-gray-700 text-xs font-bold mb-2'
+                className='block tracking-wide text-gray-700 text-xs font-bold mb-2'
                 for='grid-first-name'
               >
                 First Name
               </label>
               <input
-                class='block w-full bg-gray-200 text-gray-700 border rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white'
+                className='block w-full bg-gray-200 text-gray-700 border rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white'
                 type='text'
                 placeholder='first name'
                 onChange={handleFirstName}
               />
             </div>
-            <div class='w-11/12 lg:w-full mx-auto md:w-1/2 px-3'>
+            <div className='w-11/12 lg:w-full mx-auto md:w-1/2 px-3'>
               <label
-                class='block tracking-wide text-gray-700 text-xs font-bold mb-2'
+                className='block tracking-wide text-gray-700 text-xs font-bold mb-2'
                 for='grid-last-name'
               >
                 Last Name
               </label>
               <input
-                class='block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500'
+                className='block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500'
                 type='text'
                 placeholder='last name'
                 onChange={handleLastName}
@@ -100,16 +100,16 @@ const Signup = () => {
             </div>
           </div>
           <div className='-mx-3 mb-6'>
-            <div class='w-11/12 lg:w-full mx-auto px-3'>
+            <div className='w-11/12 lg:w-full mx-auto px-3'>
               <label
-                class='block tracking-wide text-gray-700 text-xs font-bold mb-2'
+                className='block tracking-wide text-gray-700 text-xs font-bold mb-2'
                 for='grid-last-name'
               >
                 E-mail
               </label>
               <input
-                class='block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500'
-                type='emial'
+                className='block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500'
+                type='email'
                 required
                 placeholder='email@ email.com'
                 onChange={handleEmailChange}
@@ -117,34 +117,36 @@ const Signup = () => {
             </div>
           </div>
 
-          <div class='flex flex-wrap -mx-3 mb-6'>
-            <div class='w-11/12 lg:w-full mx-auto px-3'>
+          <div className='flex flex-wrap -mx-3 mb-6'>
+            <div className='w-11/12 lg:w-full mx-auto px-3'>
               <label
-                class='block tracking-wide text-gray-700 text-xs font-bold mb-2'
+                className='block tracking-wide text-gray-700 text-xs font-bold mb-2'
                 for='grid-password'
               >
                 Password
               </label>
 
               <input
-                class='block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500'
+                className='block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500'
                 type='password'
                 required
                 placeholder='password'
                 onChange={handlePasswordChange}
               />
-              <p class='text-xs italic  text-red-700 text-center'>{error}</p>
+              <p className='text-xs italic  text-red-700 text-center'>
+                {error}
+              </p>
             </div>
-            <div class='w-11/12 lg:w-full mx-auto px-3'>
+            <div className='w-11/12 lg:w-full mx-auto px-3'>
               <label
-                class='block tracking-wide text-gray-700 text-xs font-bold mb-2'
+                className='block tracking-wide text-gray-700 text-xs font-bold mb-2'
                 for='grid-password'
               >
                 Confirm Password
               </label>
 
               <input
-                class='block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500'
+                className='block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500'
                 type='password'
                 required
                 placeholder='confirm password'
@@ -169,12 +171,12 @@ const Signup = () => {
         </form>
 
         <hr className='text-black font-extrabold' />
-        
+
         <button
           className='py-2 text-black font-semibold mx-auto text-xl px-4 bg-white hover:bg-gray-900 mt-4 rounded-tl-lg rounded-tr-lg rounded-br-lg'
           onClick={googleSignin}
         >
-          <i class='fab fa-google text-yellow-600'></i>{" "}
+          <i className='fab fa-google text-yellow-600'></i>{" "}
           <span className='text-black font-semibold mx-auto text-xl'>
             Countinue
           </span>

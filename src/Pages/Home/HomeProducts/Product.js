@@ -12,7 +12,7 @@ const Product = () => {
           <img
             // src={plan.image ? plan.image : service}
             src='https://i.ibb.co/r21j6T9/Plants-and-Pottery.webp'
-            className='h-48 w-56 z-30 shadow-md mb-2 -mt-8 border-2 rounded-md'
+            className='h-48 w-56 z-30 shadow-md mb-2 -mt-8 border-2 rounded-tl-lg rounded-tr-lg rounded-br-lg'
             alt=''
           />
         </div>

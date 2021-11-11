@@ -54,7 +54,7 @@ const Signin = () => {
               </label>
               <input
                 className='block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500'
-                type='emial'
+                type='email'
                 required
                 placeholder='example@example.com'
                 onChange={handleEmail}
