@@ -22,7 +22,7 @@ const Signin = () => {
   };
 
   return (
-    <div className='container md:flex justify-between items-center bg-yellow-700 bg-opacity-50 my-8 px-4 rounded-tl-lg rounded-br-lg'>
+    <div className='container md:flex justify-between items-center bg-yellow-700 bg-opacity-50 mt-8 mb-16 px-4 rounded-tl-lg rounded-br-lg '>
       <div className='md:w-7/12 md:h-full flex justify-center items-center'>
         <img src='https://i.ibb.co/ctbvB8g/gif3-unscreen.gif' alt='' />
       </div>
@@ -30,8 +30,8 @@ const Signin = () => {
         <div className='flex w-11/12 lg:w-full justify-center items-center mb-6 '>
           <h4 className='text-2xl font-bold'>SIGN IN</h4>
         </div>
-        <p className='text-center font-semibold'>
-          Haven't created account yet?{" "}
+        <p className='text-center font-semibold pb-4'>
+          Haven't any account yet?{" "}
           <span>
             <Link className='text-white hover:text-gray-100' to={"/signup"}>
               Sign up

@@ -9,7 +9,8 @@ import ExploreAllProducts from './Pages/ExploreAllProducts/ExploreAllProducts';
 import Footer from './Shared/Footer/Footer';
 import Dashboard from './Pages/Dashboard/Dashboard';
 import NotFound from "./Pages/NotFound/NotFound";
-
+import PrivateRoute from './Pages/Signin/PrivateRoute/PrivateRoute'
+  
 function App() {
   return (
     <div className='Noto bg-gray-100'>
@@ -26,9 +27,9 @@ function App() {
             <Route path='/all-products'>
               <ExploreAllProducts></ExploreAllProducts>
             </Route>
-            <Route path='/dashboard'>
+            <PrivateRoute path='/dashboard'>
               <Dashboard></Dashboard>
-            </Route>
+            </PrivateRoute>
             <Route exact path='/'>
               <Home></Home>
             </Route>

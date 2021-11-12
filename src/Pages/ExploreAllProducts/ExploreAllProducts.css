@@ -1,3 +1,15 @@
+.bg_mud{
+   background-color: #a17d62e8;
+}
+
+.bg_price{
+   background-color: #ffe7ace8;
+}
+
+.price{
+   transform: rotate(-45deg);
+   clip-path: polygon(25% 0%, 100% 0%, 100% 100%, 25% 100%, 0% 50%);
+}
 
 .productbtn {
  position: relative;

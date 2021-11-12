@@ -17,9 +17,20 @@ const SingleProduct = () => {
                 alt=''
               />
             </div>
-            {/* <h2 className='text-center font-bold text-lg'>{plan.name}</h2> */}
-            <h2 className='text-center px-3 font-bold text-lg'>Potter Name</h2>
-            <h2 className='text-justify px-3 text-sm'>
+            <div className='flex justify-between items-center -mt-12'>
+              <h2 className='text-center px-4 py-1 ml-2 md:ml-6 font-bold text-white text-sm md:text-lg bg_mud rounded-tl-lg rounded-br-lg'>
+                Potter Name
+              </h2>
+              <div className='price mb-8 ml-6 left-3/4'>
+                <p className='text-base font-extrabold flex'>
+                  {/* Price: */}
+                  <span className='max-w-32 text-xs md:text-sm text-black pl-5 pr-3 bg_price py-1'>
+                    $ 106.55
+                  </span>
+                </p>
+              </div>
+            </div>
+            <h2 className='text-justify px-4 2xl:px-12 text-sm'>
               {/* {plan.description.slice(0, 50)}... */}
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas
               maiores quis consequatur sapiente doloribus non iusto numquam
@@ -28,6 +39,7 @@ const SingleProduct = () => {
               Mollitia architecto magnam expedita eos iste quia, et in sit,
               explicabo natus a nobis vitae tenetur.
             </h2>
+
             <div>
               <p className='text-base py-1 flex'>
                 {/* <span className='mr-2'>Rating:</span> */}

@@ -46,21 +46,19 @@ const AddProduct = () => {
       });
   };
   return (
-    <div className='flex flex-col pt-10 pb-20'>
-      <h1 className='text-center text-4xl font-semibold pb-12'>
-        Make New Admin
-      </h1>
+    <div className=' flex flex-col pt-10 pb-20'>
+      <h1 className='text-center text-4xl font-semibold pb-12'>Add Product</h1>
       <form
-        class='w-11/12 md:w-full max-w-5xl px-8 py-12 mr-2 font-semibold rounded-tl-lg rounded-tr-lg rounded-br-lg my-2 md:my-0 text-white bg-yellow-800 bg-opacity-50 shadow-md'
+        class='w-full mx-auto md:max-w-3xl md:px-8 py-12 font-semibold rounded-tl-lg rounded-tr-lg rounded-br-lg my-2 md:my-0 text-white bg-yellow-800 bg-opacity-50 shadow-md'
         onSubmit={(e) => handleSubmit(e)}
       >
         <div class='flex flex-wrap -mx-3 mb-6'>
           <div class='w-11/12 lg:w-full mx-auto md:w-1/2 px-3 mb-6 md:mb-0'>
             <label
-              class='block uppercase tracking-wide text-white text-xs font-bold mb-2'
+              class='block tracking-wide text-white text-xs font-bold mb-2'
               for='grid-first-name'
             >
-              Plan Name
+              Product Name
             </label>
             <input
               class='block w-full bg-gray-200 text-gray-700 border rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white'
@@ -73,7 +71,7 @@ const AddProduct = () => {
           </div>
           <div class='w-11/12 lg:w-full mx-auto md:w-1/2 px-3 pb-3'>
             <label
-              class='block uppercase tracking-wide text-white text-xs font-bold mb-2'
+              class='block tracking-wide text-white text-xs font-bold mb-2'
               for='grid-last-name'
             >
               Description
@@ -90,7 +88,7 @@ const AddProduct = () => {
 
           <div class='w-11/12 lg:w-full mx-auto md:w-1/2 px-3 pb-3'>
             <label
-              class='block uppercase tracking-wide text-white text-xs font-bold mb-2'
+              class='block tracking-wide text-white text-xs font-bold mb-2'
               for='grid-last-name'
             >
               Image Link
@@ -107,7 +105,7 @@ const AddProduct = () => {
 
           <div class='w-11/12 lg:w-full mx-auto md:w-1/2 px-3 pb-3'>
             <label
-              class='block uppercase tracking-wide text-white text-xs font-bold mb-2'
+              class='block tracking-wide text-white text-xs font-bold mb-2'
               for='grid-last-name'
             >
               Price

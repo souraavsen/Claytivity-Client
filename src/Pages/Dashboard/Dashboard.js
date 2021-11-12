@@ -17,13 +17,8 @@ import ListItemText from "@mui/material/ListItemText";
 import PaymentsOutlinedIcon from "@mui/icons-material/PaymentsOutlined";
 import ReviewsIcon from "@mui/icons-material/Reviews";
 import ReorderOutlinedIcon from "@mui/icons-material/ReorderOutlined";
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-  Link,
-  useRouteMatch,
-} from "react-router-dom";
+import Toolbar from "@mui/material/Toolbar";
+import { Switch, Route, Link, useRouteMatch } from "react-router-dom";
 import useAuth from "../../Hooks/useAuth";
 import DashboardHome from "./DashboardHome/DashboardHome";
 import AddProduct from "./AddProduct/AddProduct";
@@ -34,6 +29,8 @@ import ManageProducts from "./ManageProducts/ManageAllProducts";
 import Payments from "./Payments/Payments";
 import UserOrders from "./UserOrders/UserOrders";
 import NotFound from "../NotFound/NotFound";
+import logo from "../../Images/caltivity-logo.png";
+import useralogo from "../../Images/userlogo.png";
 
 const drawerWidth = 220;
 
@@ -56,22 +53,22 @@ const Main = styled("main", { shouldForwardProp: (prop) => prop !== "open" })(
   })
 );
 
-// const AppBar = styled(MuiAppBar, {
-//   shouldForwardProp: (prop) => prop !== "open",
-// })(({ theme, open }) => ({
-//   transition: theme.transitions.create(["margin", "width"], {
-//     easing: theme.transitions.easing.sharp,
-//     duration: theme.transitions.duration.leavingScreen,
-//   }),
-//   ...(open && {
-//     width: `calc(100% - ${drawerWidth}px)`,
-//     marginLeft: `${drawerWidth}px`,
-//     transition: theme.transitions.create(["margin", "width"], {
-//       easing: theme.transitions.easing.easeOut,
-//       duration: theme.transitions.duration.enteringScreen,
-//     }),
-//   }),
-// }));
+const AppBar = styled(MuiAppBar, {
+  shouldForwardProp: (prop) => prop !== "open",
+})(({ theme, open }) => ({
+  transition: theme.transitions.create(["margin", "width"], {
+    easing: theme.transitions.easing.sharp,
+    duration: theme.transitions.duration.leavingScreen,
+  }),
+  ...(open && {
+    width: `calc(100% - ${drawerWidth}px)`,
+    marginLeft: `${drawerWidth}px`,
+    transition: theme.transitions.create(["margin", "width"], {
+      easing: theme.transitions.easing.easeOut,
+      duration: theme.transitions.duration.enteringScreen,
+    }),
+  }),
+}));
 
 const DrawerHeader = styled("div")(({ theme }) => ({
   display: "flex",
@@ -84,9 +81,16 @@ const DrawerHeader = styled("div")(({ theme }) => ({
 export default function Dashboard() {
   const theme = useTheme();
   const [open, setOpen] = React.useState(false);
-
-  const { user, googleSignOut } = useAuth()
+  const { user, googleSignOut } = useAuth();
   let { path, url } = useRouteMatch();
+
+  let userimg;
+
+  if (user.photoURL) {
+    userimg = user.photoURL;
+  } else {
+    userimg = useralogo;
+  }
 
   const handleDrawerOpen = () => {
     setOpen(true);
@@ -101,19 +105,103 @@ export default function Dashboard() {
       sx={{ display: "flex", justifyContent: "center", alignItems: "center" }}
     >
       <CssBaseline />
-
-      {/* <Box className='flex'> */}
-      <IconButton
-        className='mb-auto'
-        color='inherit'
-        aria-label='open drawer'
-        onClick={handleDrawerOpen}
-        edge='start'
-        size='large'
-        sx={{ ml: 1, ...(open && { display: "none" }) }}
-      >
-        <MenuIcon />
-      </IconButton>
+      <AppBar position='fixed' className='bg-white' open={open}>
+        <Toolbar className='container'>
+          <IconButton
+            className='text-black'
+            color='inherit'
+            aria-label='open drawer'
+            onClick={handleDrawerOpen}
+            edge='start'
+            sx={{ mr: 2, ...(open && { display: "none" }) }}
+          >
+            <MenuIcon />
+          </IconButton>
+          <Box className='mx-auto flex justify-center items-center '>
+            <Typography
+              className='mr-4 text-black border-b-2 border-transparent hover:border-yellow-700'
+              noWrap
+              component='div'
+            >
+              Dashboard
+            </Typography>
+            <Link
+              to='/'
+              className='ml-4 mr-4 hidden md:block text-black border-b-2 border-transparent hover:border-yellow-700'
+            >
+              Home
+            </Link>
+            <Link
+              to='/all-products'
+              className='mr-4 hidden md:block text-black border-b-2 border-transparent hover:border-yellow-700'
+            >
+              Explore Products
+            </Link>
+          </Box>
+          {user?.email ? (
+            <>
+              <Box className='flex flex-col md:flex-row justify-center md:justify-between items-center mr-2 ml-auto'>
+                <div class='dropdown'>
+                  <img
+                    title={user?.displayName}
+                    className='rounded-full mr-2'
+                    src={userimg}
+                    width='40px'
+                    alt='img'
+                    type='button'
+                    id='dropdownMenu2'
+                    data-toggle='dropdown'
+                    aria-haspopup='true'
+                    aria-expanded='false'
+                  />
+                  <div
+                    class='dropdown-menu dropdown-menu-right py-2 mt-2 shadow-sm bg-gray-50 bg-opacity-80 backdrop-filter backdrop-blur-md'
+                    aria-labelledby='dropdownMenu2'
+                  >
+                    <button class='dropdown-item font-extrabold' type='button'>
+                      {user?.displayName}
+                    </button>
+                    <button class='dropdown-item' type='button'>
+                      Settings
+                    </button>
+                    <hr></hr>
+                    <button class='dropdown-item' type='button'>
+                      Help
+                    </button>
+                  </div>
+                </div>
+                {/* <h4 className='text-black my-2 md:my-0'>
+                      {user?.displayName}
+                    </h4> */}
+              </Box>
+              <Box className='my-auto'>
+                <Link
+                  className='px-3 py-1 hidden md:block font-semibold rounded-tl-lg rounded-tr-lg rounded-br-lg hover:bg-opacity-40 my-2 md:my-0 text-white bg-yellow-800 bg-opacity-50'
+                  to='/'
+                  onClick={googleSignOut}
+                >
+                  Sign out
+                </Link>
+              </Box>
+            </>
+          ) : (
+            <Box>
+              <Link
+                className='px-3 mr-2 font-semibold py-1 rounded-tl-lg rounded-tr-lg rounded-br-lg hover:bg-opacity-30 my-2 md:my-0 text-white bg-yellow-800 bg-opacity-50'
+                to='/signup'
+              >
+                Sign up
+              </Link>
+              <Link
+                className='px-3 py-1 font-semibold rounded-tl-lg rounded-tr-lg rounded-br-lg hover:bg-opacity-30 my-2 md:my-0 text-white bg-yellow-800 bg-opacity-50'
+                to='/signin'
+              >
+                Sign in
+              </Link>
+            </Box>
+          )}
+        </Toolbar>
+      </AppBar>
 
       <Drawer
         sx={{
@@ -129,13 +217,15 @@ export default function Dashboard() {
         open={open}
       >
         <DrawerHeader>
-          <Typography
-            sx={{ fontWeight: 700, fontSize: 20 }}
-            className='m-auto text-black'
-            paragraph
-          >
-            Dashboard
-          </Typography>
+          <Box className='mx-auto flex justify-center items-center'>
+            <Link
+              to='/'
+              className='mochiy text-2xl hover:text-yellow-700 hover:text-opacity-50 flex items-center'
+            >
+              <img className='w-10 mr-2' src={logo} alt='' />
+              <p className='text-lg'>Claytivity</p>
+            </Link>
+          </Box>
           <IconButton onClick={handleDrawerClose}>
             {theme.direction === "ltr" ? (
               <ChevronLeftIcon />
@@ -165,7 +255,6 @@ export default function Dashboard() {
               <i class='fas fa-tasks'></i>
             </ListItemIcon>
             Manage Orders
-            {/* <ListItemText primary={"Manage Orders"} /> */}
           </ListItem>
         </Link>
 
@@ -207,7 +296,6 @@ export default function Dashboard() {
               <ReviewsIcon></ReviewsIcon>
             </ListItemIcon>
             Add Review
-            {/* <ListItemText primary={"Add Review"} /> */}
           </ListItem>
         </Link>
 
@@ -219,8 +307,27 @@ export default function Dashboard() {
             Payments
           </ListItem>
         </Link>
-
         <Divider />
+
+        <Link className='text-black hover:text-black block md:hidden' to='/'>
+          <ListItem button>
+            <ListItemIcon>
+              <i class='fas fa-home'></i>
+            </ListItemIcon>
+            Home
+          </ListItem>
+        </Link>
+        <Link
+          className='text-black hover:text-black block md:hidden'
+          to='/all-products'
+        >
+          <ListItem button>
+            <ListItemIcon>
+              <i class='fas fa-border-all'></i>
+            </ListItemIcon>
+            Explore products
+          </ListItem>
+        </Link>
 
         {user?.email && (
           <Link
@@ -272,7 +379,7 @@ export default function Dashboard() {
             <UserOrders></UserOrders>
           </Route>
 
-          <Route path="*">
+          <Route path='*'>
             <NotFound></NotFound>
           </Route>
         </Switch>
