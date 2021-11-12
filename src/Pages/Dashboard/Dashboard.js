@@ -27,7 +27,7 @@ import AddReview from "./AddReview/AddReview";
 import ManageOrders from "./ManageOrders/ManageOrders";
 import ManageProducts from "./ManageProducts/ManageAllProducts";
 import Payments from "./Payments/Payments";
-import UserOrders from "./UserOrders/UserOrders";
+import MyOrders from "./MyOrders/MyOrders";
 import logo from "../../Images/caltivity-logo.png";
 import useralogo from "../../Images/userlogo.png";
 import DashboardNotFound from "../NotFound/DashboardNotFound";
@@ -376,7 +376,7 @@ export default function Dashboard() {
           </Route>
 
           <Route path={`${path}/myorders`}>
-            <UserOrders></UserOrders>
+            <MyOrders></MyOrders>
           </Route>
 
           <Route path='*'>

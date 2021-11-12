@@ -20,17 +20,23 @@ const SingleOrder = () => {
               alt='Card image'
             />
             <div className='card-img-overlay bg-gray-900 bg-opacity-50'>
-              <h5 className='card-title'>Card title</h5>
+              <h5 className='card-title'>Pottery Item</h5>
               <p className='card-text'>
                 This is a wider card with supporting text below
               </p>
-              <p className='card-text'>Last updated 3 mins ago</p>
+              <p className='card-text'>Price: 1006</p>
             </div>
           </div>
           <h2 className='px-2 font-semibold my-6'>
             Status:{" "}
             <span className='px-3 py-0.5 bg-red-400 text-white rounded-full'>
               Painding
+            </span>
+          </h2>
+          <h2 className='px-2 font-semibold'>
+            Quantity:{" "}
+            <span className='px-1.5 py-1.5 bg-yellow-700 bg-opacity-70 text-white rounded-full'>
+              10
             </span>
           </h2>
         </div>
