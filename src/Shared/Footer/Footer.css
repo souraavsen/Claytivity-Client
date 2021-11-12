@@ -1,6 +1,6 @@
 .footer_background{
-    background-image: url(https://i.ibb.co/3zq9hJx/bl11-1024x1024.jpg);
     /* background-image: url(https://i.ibb.co/dr99R6R/pexels-photo-3760983.jpg); */
+    background-image: url(https://i.ibb.co/z6w9z6B/resizer.jpg);
     background-position: center;
     background-size: cover;
 }
@@ -11,8 +11,8 @@
 
 .brand_logo{
     position: relative;
-    top: 6vw;
-    left: 43%;
+    top: 4vw;
+    left: 47%;
 }
 
 @media only screen and (max-width: 750px) {

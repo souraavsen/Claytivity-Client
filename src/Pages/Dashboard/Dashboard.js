@@ -141,7 +141,7 @@ export default function Dashboard() {
           {user?.email ? (
             <>
               <Box className='flex flex-col md:flex-row justify-center md:justify-between items-center mr-2 ml-auto'>
-                <div class='dropdown'>
+                <div className='dropdown'>
                   <img
                     title={user?.displayName}
                     className='rounded-full mr-2'
@@ -155,17 +155,17 @@ export default function Dashboard() {
                     aria-expanded='false'
                   />
                   <div
-                    class='dropdown-menu dropdown-menu-right py-2 mt-2 shadow-sm bg-gray-50 bg-opacity-80 backdrop-filter backdrop-blur-md'
+                    className='dropdown-menu dropdown-menu-right py-2 mt-2 shadow-sm bg-gray-50 bg-opacity-80 backdrop-filter backdrop-blur-md'
                     aria-labelledby='dropdownMenu2'
                   >
-                    <button class='dropdown-item font-extrabold' type='button'>
+                    <button className='dropdown-item font-extrabold' type='button'>
                       {user?.displayName}
                     </button>
-                    <button class='dropdown-item' type='button'>
+                    <button className='dropdown-item' type='button'>
                       Settings
                     </button>
                     <hr></hr>
-                    <button class='dropdown-item' type='button'>
+                    <button className='dropdown-item' type='button'>
                       Help
                     </button>
                   </div>
@@ -239,7 +239,7 @@ export default function Dashboard() {
         <Link className='text-black hover:text-black' to={`${url}/add-product`}>
           <ListItem button>
             <ListItemIcon>
-              <i class='fas fa-plus'></i>
+              <i className='fas fa-plus'></i>
             </ListItemIcon>
             Add Product
             {/* <ListItemText primary={"Add Product"} /> */}
@@ -252,7 +252,7 @@ export default function Dashboard() {
         >
           <ListItem button>
             <ListItemIcon>
-              <i class='fas fa-tasks'></i>
+              <i className='fas fa-tasks'></i>
             </ListItemIcon>
             Manage Orders
           </ListItem>
@@ -261,7 +261,7 @@ export default function Dashboard() {
         <Link className='text-black hover:text-black' to={`${url}/add-admin`}>
           <ListItem button>
             <ListItemIcon>
-              <i class='fas fa-user-shield'></i>
+              <i className='fas fa-user-shield'></i>
             </ListItemIcon>
             Add Admin
           </ListItem>
@@ -312,7 +312,7 @@ export default function Dashboard() {
         <Link className='text-black hover:text-black block md:hidden' to='/'>
           <ListItem button>
             <ListItemIcon>
-              <i class='fas fa-home'></i>
+              <i className='fas fa-home'></i>
             </ListItemIcon>
             Home
           </ListItem>
@@ -323,7 +323,7 @@ export default function Dashboard() {
         >
           <ListItem button>
             <ListItemIcon>
-              <i class='fas fa-border-all'></i>
+              <i className='fas fa-border-all'></i>
             </ListItemIcon>
             Explore products
           </ListItem>
@@ -337,7 +337,7 @@ export default function Dashboard() {
           >
             <ListItem button>
               <ListItemIcon>
-                <i class='fas fa-sign-out-alt'></i>
+                <i className='fas fa-sign-out-alt'></i>
               </ListItemIcon>
               <ListItemText primary={"Sign Out"} />
             </ListItem>

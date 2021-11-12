@@ -6,8 +6,6 @@ import logo from "../../Images/caltivity-logo.png";
 import useAuth from "../../Hooks/useAuth";
 
 const NavbarSection = () => {
-
-
   const { user, googleSignOut } = useAuth();
 
   let userimg;

@@ -5,8 +5,8 @@ import logo from "../../Images/caltivity-logo.png";
 const Footer = () => {
   return (
     <div>
-      <div className='md:my-auto h-40 w-40 rounded-full bg-gray-600 flex justify-center items-center z-50 brand_logo'>
-        <img className='mx-auto w-28 md:w-32' src={logo} alt='' />
+      <div className='md:my-auto h-20 w-20 rounded-full bg-gray-800 flex justify-center items-center z-30 brand_logo'>
+        <img className='mx-auto w-16 m-auto' src={logo} alt='' />
       </div>
 
       <div className='footer_background footer_container'>
@@ -50,9 +50,9 @@ const Footer = () => {
                 </p>
                 <div className='flex flex-col justify-center items-center md:items-start text-lg mt-2'>
                   <div className='flex items-center justify-center py-2'>
-                    <i class='fab fa-facebook text-gray-50 text-opacity-90 hover:text-opacity-80 text-3xl cursor-pointer'></i>
-                    <i class='fab fa-twitter text-gray-50 text-opacity-90 hover:text-opacity-80 text-3xl px-6 cursor-pointer'></i>
-                    <i class='fab fa-linkedin text-gray-50 text-opacity-90 hover:text-opacity-80 text-3xl cursor-pointer'></i>
+                    <i className='fab fa-facebook text-gray-50 text-opacity-90 hover:text-opacity-80 text-3xl cursor-pointer'></i>
+                    <i className='fab fa-twitter text-gray-50 text-opacity-90 hover:text-opacity-80 text-3xl px-6 cursor-pointer'></i>
+                    <i className='fab fa-linkedin text-gray-50 text-opacity-90 hover:text-opacity-80 text-3xl cursor-pointer'></i>
                   </div>
                 </div>
               </div>

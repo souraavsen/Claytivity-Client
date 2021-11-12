@@ -10,6 +10,7 @@ import Footer from './Shared/Footer/Footer';
 import Dashboard from './Pages/Dashboard/Dashboard';
 import NotFound from "./Pages/NotFound/NotFound";
 import PrivateRoute from './Pages/Signin/PrivateRoute/PrivateRoute'
+import ProductDetails from './Pages/ExploreAllProducts/ProductDetails/ProductDetails';
   
 function App() {
   return (
@@ -27,6 +28,9 @@ function App() {
             <Route path='/all-products'>
               <ExploreAllProducts></ExploreAllProducts>
             </Route>
+            <PrivateRoute path='/product-details/:planId'>
+              <ProductDetails></ProductDetails>
+            </PrivateRoute>
             <PrivateRoute path='/dashboard'>
               <Dashboard></Dashboard>
             </PrivateRoute>

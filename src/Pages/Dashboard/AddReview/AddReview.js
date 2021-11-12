@@ -113,7 +113,7 @@ const AddReview = () => {
                   className='px-4 mr-2 font-semibold py-2 rounded-tl-lg rounded-tr-lg rounded-br-lg hover:bg-opacity-50 my-2 md:my-0 text-white bg-yellow-800 bg-opacity-60'
                   type='submit'
                 >
-                  <i class='fas fa-location-arrow'></i>
+                  <i className='fas fa-location-arrow'></i>
                 </button>
               </div>
             </form>

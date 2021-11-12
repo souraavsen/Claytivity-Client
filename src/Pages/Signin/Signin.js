@@ -106,7 +106,7 @@ const Signin = () => {
             className='py-2 text-black font-semibold mx-auto text-xl px-4 bg-white hover:bg-gray-900 mt-4 rounded-tl-lg rounded-tr-lg rounded-br-lg'
             onClick={googleSignin}
           >
-            <i class='fab fa-google text-yellow-600'></i>{" "}
+            <i className='fab fa-google text-yellow-600'></i>{" "}
             <span className='text-black font-semibold mx-auto text-xl'>
               Countinue
             </span>

@@ -58,7 +58,7 @@ const Product = () => {
             </p>
           </div>
           <Link
-            to={`/product/`}
+            to={`/product-details/`}
             className='explore_btn mt-3 text-black font-semibold py-1 rounded'
           >
             <button className='productbtn mx-auto'>

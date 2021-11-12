@@ -32,13 +32,13 @@ const ManageProduct = () => {
             className='px-4 mr-2 font-semibold py-2 rounded-tl-lg rounded-tr-lg rounded-br-lg hover:bg-opacity-50 my-2 md:my-0 bg-green-500 text-white '
             type='submit'
           >
-            <i class='far fa-edit'></i>
+            <i className='far fa-edit'></i>
           </button>
           <button
             className='px-4 mr-2 font-semibold py-2 rounded-tl-lg rounded-tr-lg rounded-br-lg hover:bg-opacity-50 my-2 md:my-0 bg-red-500 text-white'
             type='submit'
           >
-            <i class='far fa-trash-alt'></i>
+            <i className='far fa-trash-alt'></i>
           </button>
         </div>
       </div>

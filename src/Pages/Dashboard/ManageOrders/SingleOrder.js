@@ -1,8 +1,6 @@
 import React, { useState } from "react";
 
 const SingleOrder = () => {
-
-
   return (
     <div className='container mx-auto'>
       <div className=' md:mt-10 px-2 pb-4 bg-white border-2 md:flex justify-between items-center shadow-md rounded-bl-xl rounded-br-xl'>
@@ -57,7 +55,7 @@ const SingleOrder = () => {
               className='px-4 mr-2 font-semibold py-2 rounded-tl-lg rounded-tr-lg rounded-br-lg hover:bg-opacity-50 my-2 md:my-0 bg-green-500 text-white '
               type='submit'
             >
-              <i class='far fa-check-circle'></i>
+              <i className='far fa-check-circle'></i>
             </button>
             <button
               className='px-4 mr-2 font-semibold py-2 rounded-tl-lg rounded-tr-lg rounded-br-lg hover:bg-opacity-50 my-2 md:my-0 bg-red-500 text-white'
