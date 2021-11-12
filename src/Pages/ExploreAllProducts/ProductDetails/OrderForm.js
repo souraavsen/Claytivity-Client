@@ -17,17 +17,18 @@ const OrderForm = (props) => {
 
   const usernameref = useRef();
   const useremailref = useRef();
-  const packagenameref = useRef();
+  const product_nameref = useRef();
   const packageIdref = useRef();
 
   const [orderdata, setOrderdata] = useState({
     username: "",
     email: "",
-    package_id: "",
-    packagename: "",
+    product_id: "",
+    product_name: "",
     contact: "",
     transiction: "",
     quantity: "",
+    address: "",
     status: "Pending",
   });
 
@@ -56,8 +57,8 @@ const OrderForm = (props) => {
     data[e.target.id] = e.target.value;
     data.username = usernameref.current.value;
     data.email = useremailref.current.value;
-    data.package_id = packageIdref.current.value;
-    data.packagename = packagenameref.current.value;
+    data.product_id = packageIdref.current.value;
+    data.product_name = product_nameref.current.value;
     setOrderdata(data);
   };
 
@@ -74,11 +75,12 @@ const OrderForm = (props) => {
         setOrderdata({
           username: "",
           email: "",
-          package_id: "",
-          packagename: "",
+          product_id: "",
+          product_name: "",
           contact: "",
           transiction: "",
           quantity: "",
+          address: "",
           status: "Painding",
         });
         window.alert("Plan Booked Succefully.");
@@ -101,7 +103,7 @@ const OrderForm = (props) => {
   const ifUserBooked = allBookings.filter((info) => info.email === user.email);
   console.log(ifUserBooked);
   let ifPlan = ifUserBooked.filter(
-    (plan) => plan.package_id === props.planDetails._id
+    (plan) => plan.product_id === props.planDetails._id
   );
 
   return (
@@ -164,7 +166,7 @@ const OrderForm = (props) => {
 
                   <div className='w-full flex justify-between md:mx-6'>
                     <input
-                      id='package_id'
+                      id='product_id'
                       type='hidden'
                       value={props.planDetails._id}
                       ref={packageIdref}
@@ -180,10 +182,10 @@ const OrderForm = (props) => {
                       <input
                         className='block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500'
                         type='text'
-                        id='packagename'
+                        id='product_name'
                         value={props.planDetails.name}
                         readOnly
-                        ref={packagenameref}
+                        ref={product_nameref}
                         placeholder='Package Name'
                         onChange={(e) => handleorderdata(e)}
                       />
@@ -235,6 +237,22 @@ const OrderForm = (props) => {
                       id='quantity'
                       value={orderdata.quantity}
                       placeholder='1'
+                      onChange={(e) => handleorderdata(e)}
+                    />
+                  </div>
+                  <div className='w-full px-3 md:mx-6 mb-6 pt-3 md:mb-0'>
+                    <label
+                      className='block tracking-wide text-gray-700 text-xs font-bold mb-2'
+                      for='grid-last-name'
+                    >
+                      Address
+                    </label>
+                    <input
+                      className='block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500'
+                      type='text'
+                      id='address'
+                      value={orderdata.address}
+                      placeholder='address'
                       onChange={(e) => handleorderdata(e)}
                     />
                   </div>
