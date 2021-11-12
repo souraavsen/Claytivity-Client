@@ -1,12 +1,9 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import footerimg from "../../Images/404.gif";
-import NavbarSection from "../../Shared/Navbar/NavbarSection";
 
-const NotFound = () => {
+const DashboardNotFound = () => {
   return (
-      <>
-      <NavbarSection></NavbarSection>
       <div className='h-screen flex justify-center items-center'>
         <div className='flex flex-col items-center w-7/12 pb-16 mx-auto my-10 rounded-tl-lg rounded-tr-lg rounded-br-lg bg-white'>
           <img src={footerimg} className='w-9/12' alt='' />
@@ -21,8 +18,7 @@ const NotFound = () => {
           </Link>
         </div>
       </div>
-      </>
-    );
-}
+  );
+};
 
-export default NotFound
+export default DashboardNotFound;

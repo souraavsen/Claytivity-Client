@@ -2,7 +2,7 @@ import React from 'react'
 
 const DashboardHome = () => {
     return (
-      <div className='pb-12'>
+      <div className='py-16'>
         {/* className='xl:my-20' */}
         <h1 className='text-center py-4 m-auto bg-white text-xl font-semibold'>
           Welcome to Dashboard

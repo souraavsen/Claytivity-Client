@@ -3,7 +3,7 @@ import ManageProduct from "./ManageProduct";
 
 const ManageAllProducts = () => {
   return (
-    <div className="pb-12">
+    <div className='pt-24 pb-12'>
       <h1 className='text-center text-4xl font-semibold pb-12'>
         Manage All Products
       </h1>

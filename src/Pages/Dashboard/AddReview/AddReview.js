@@ -6,9 +6,8 @@ const AddReview = () => {
   const { user } = useAuth();
 
     return (
-      <div>
+      <div className='pt-24'>
         <h1 className='text-center text-4xl font-semibold pb-12'>Add Review</h1>
-
         <div>
           <div className='container md:flex justify-between items-center bg-white shadow-md mb-8 rounded-tl-lg rounded-br-lg'>
             <div className='md:w-5/12 flex flex-col py-10 mx-4 md:mx-0 lg:mx-0'>
@@ -70,13 +69,15 @@ const AddReview = () => {
                     >
                       Review Message
                     </label>
-                    <input
+                    <textarea
                       className='block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500'
                       type='text'
-                      placeholder='Add message'
-                    />
+                      placeholder='Add message'>
+                      Value
+                      </textarea>
                   </div>
                 </div>
+
                 <div className='-mx-3 mb-6'>
                   <div className='w-11/12 lg:w-full mx-auto px-3'>
                     <label

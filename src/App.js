@@ -16,7 +16,7 @@ function App() {
     <div className='Noto bg-gray-100'>
       <Router>
         <AuthProvider>
-          <NavbarSection></NavbarSection>
+          {/* <NavbarSection></NavbarSection> */}
           <Switch>
             <Route path='/signup'>
               <SignUp></SignUp>

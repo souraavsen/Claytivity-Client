@@ -46,7 +46,7 @@ const AddProduct = () => {
       });
   };
   return (
-    <div className=' flex flex-col pt-10 pb-20'>
+    <div className=' flex flex-col pt-24'>
       <h1 className='text-center text-4xl font-semibold pb-12'>Add Product</h1>
       <form
         class='w-full mx-auto md:max-w-3xl md:px-8 py-12 font-semibold rounded-tl-lg rounded-tr-lg rounded-br-lg my-2 md:my-0 text-white bg-yellow-800 bg-opacity-50 shadow-md'
@@ -121,7 +121,7 @@ const AddProduct = () => {
           </div>
         </div>
 
-        <div class='flex flex-wrap -mx-3 mb-6'>
+        <div class='flex flex-wrap -mx-3'>
           <button
             className='mx-auto px-4 mr-2 font-semibold py-2 rounded-tl-lg rounded-tr-lg rounded-br-lg hover:bg-opacity-90 my-2 md:my-0 text-black bg-gray-100'
             type='submit'

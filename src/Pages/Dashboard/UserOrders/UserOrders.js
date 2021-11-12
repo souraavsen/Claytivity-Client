@@ -3,9 +3,10 @@ import { Link } from 'react-router-dom';
 
 const UserOrders = () => {
     return (
-      <div>
-        <h1>My Orders Is Here</h1>
-        
+      <div className='pt-24 pb-12'>
+        <h1 className='text-center text-4xl font-semibold pb-12'>
+          My Orders Is Here
+        </h1>
       </div>
     );
 }

@@ -3,7 +3,7 @@ import adminimg from '../../../Images/addAdmin.gif'
 
 const AddAdmin = () => {
     return (
-      <div>
+      <div className='pt-24 pb-12'>
         <h1 className='text-center text-4xl font-semibold pb-12'>
           Make New Admin
         </h1>

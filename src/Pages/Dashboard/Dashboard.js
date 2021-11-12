@@ -28,9 +28,9 @@ import ManageOrders from "./ManageOrders/ManageOrders";
 import ManageProducts from "./ManageProducts/ManageAllProducts";
 import Payments from "./Payments/Payments";
 import UserOrders from "./UserOrders/UserOrders";
-import NotFound from "../NotFound/NotFound";
 import logo from "../../Images/caltivity-logo.png";
 import useralogo from "../../Images/userlogo.png";
+import DashboardNotFound from "../NotFound/DashboardNotFound";
 
 const drawerWidth = 220;
 
@@ -380,7 +380,7 @@ export default function Dashboard() {
           </Route>
 
           <Route path='*'>
-            <NotFound></NotFound>
+            <DashboardNotFound></DashboardNotFound>
           </Route>
         </Switch>
       </Main>
