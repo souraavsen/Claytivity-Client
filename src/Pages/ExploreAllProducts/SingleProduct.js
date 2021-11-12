@@ -65,7 +65,7 @@ const SingleProduct = () => {
                 <span aria-hidden='true' className='circle'>
                   <span className='icon arrow'></span>
                 </span>
-                <span className='productbtn-text'>Learn More</span>
+                <span className='productbtn-text'>View More</span>
               </button>
             </Link>
           </div>

@@ -64,9 +64,7 @@ const Product = () => {
             <span aria-hidden='true' className='circle'>
               <span className='icon arrow'></span>
             </span>
-            <span className='productbtn-text'>
-              <i class='far fa-eye'></i>
-            </span>
+            <span className='productbtn-text'>View More</span>
           </button>
         </Link>
       </div>
