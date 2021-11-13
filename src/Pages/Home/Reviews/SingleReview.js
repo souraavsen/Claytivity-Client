@@ -2,7 +2,7 @@ import React from "react";
 import ReactStars from "react-rating-stars-component";
 import "./Review.css";
 
-const SingleReview = () => {
+const SingleReview = ({ review }) => {
   return (
     <div className='review_background md:min-h-72 '>
       <div className='py-16 bg-gray-900 bg-opacity-70 backdrop-filter backdrop-blur-sm'>
@@ -10,7 +10,7 @@ const SingleReview = () => {
           <div className='md:w-1/4'>
             <img
               className='w-48 h-48 rounded-full mx-auto'
-              src='https://media.istockphoto.com/photos/portrait-of-handsome-latino-african-man-picture-id1007763808?k=20&m=1007763808&s=612x612&w=0&h=q4qlV-99EK1VHePL1-Xon4gpdpK7kz3631XK4Hgr1ls='
+              src={review.avatar}
               alt=''
             />
           </div>
@@ -38,20 +38,14 @@ const SingleReview = () => {
                 </g>
               </svg>
             </div>
-            <div className='text-white text-justify'>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet
-              sequi voluptatibus veritatis quibusdam quam molestias, atque,
-              asperiores doloribus iste cum dolore facere quae harum molestiae
-              dolorum earum dolores, aperiam quisquam est debitis! Error
-              repudiandae rerum numquam aut laboriosam.
-            </div>
+            <div className='text-white text-justify'>{review.message}</div>
             <div>
               <p className='text-base py-1 flex'>
                 {/* <span className='mr-2'>Rating:</span> */}
                 <ReactStars
                   count={5}
                   size={24}
-                  value={4.5}
+                  value={review.ratting}
                   edit={false}
                   isHalf={true}
                   emptyIcon={<i className='far fa-star'></i>}
@@ -59,16 +53,15 @@ const SingleReview = () => {
                   fullIcon={<i className='fa fa-star'></i>}
                   activeColor='#ffd700'
                 />
-                <span className='ml-1'>4.5 (106)</span>
+                <span className='ml-1'>{review.ratting}</span>
               </p>
             </div>
             <div className='pt-4 tect-xl font-semibold text-white italic'>
-              ~ Sourav Sen
+              ~ {review.username}
             </div>
           </div>
         </div>
       </div>
-      
     </div>
   );
 };

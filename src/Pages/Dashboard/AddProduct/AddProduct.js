@@ -40,7 +40,6 @@ const AddProduct = () => {
         console.log(error);
       });
   };
-      console.log(productdata);
 
   return (
     <div className=' flex flex-col pt-24'>

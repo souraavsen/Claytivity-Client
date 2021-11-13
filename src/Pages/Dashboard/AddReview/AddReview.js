@@ -1,14 +1,62 @@
-import React from "react";
+import React, { useState } from "react";
 import useAuth from "../../../Hooks/useAuth";
 import reviewimg from "../../../Images/review.gif";
-import ReactStars from "react-rating-stars-component";
+import ReactStars from "react-stars";
+import axios from "axios";
+import userlogo from "../../../Images/userlogo.png";
+import { useHistory } from "react-router-dom";
 
 const AddReview = () => {
+  const history = useHistory();
   const { user } = useAuth();
+  const [rating, setRating] = useState();
+
+  const initial = {
+    username: user.displayName,
+    useremail: user.email,
+    avatar: user.photoURL ? user.photoURL : userlogo,
+    message: "",
+    // ratting: "",
+  };
+  const [reviewdata, setReviewdata] = useState(initial);
+
+  const handleReviewdata = (e) => {
+    const data = { ...reviewdata };
+    data[e.target.id] = e.target.value;
+    setReviewdata(data);
+  };
+
+  const data = {
+    ...reviewdata,
+    ratting: rating
+  }
+
+  console.log(data);
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const permission = window.confirm(
+      "Review added successfully."
+    );
+    if (permission) {
+      axios
+        .post("http://127.0.0.1:5000/add-review", data)
+        .then((res) => {
+          console.log(res);
+          setReviewdata(initial);
+          e.target.reset();
+          history.push("/");
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    }
+  };
 
   const ratingChanged = (newRating) => {
-    console.log(newRating);
+    setRating(newRating);
   };
+
   return (
     <div className='pt-24'>
       <h1 className='text-center text-4xl font-semibold pb-12'>Add Review</h1>
@@ -21,9 +69,9 @@ const AddReview = () => {
 
             <form
               className='mb-8'
-              // onSubmit={(e) => {
-              //   signInWithEmail(e);
-              // }}
+              onSubmit={(e) => {
+                handleSubmit(e);
+              }}
             >
               <input
                 hidden
@@ -42,6 +90,7 @@ const AddReview = () => {
                   <input
                     className='block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500'
                     type='text'
+                    id='username'
                     readOnly
                     value={user?.displayName}
                   />
@@ -58,9 +107,9 @@ const AddReview = () => {
                   <input
                     className='block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500'
                     type='email'
+                    id='useremail'
                     readOnly
                     value={user?.email}
-                    // onChange={handleEmail}
                   />
                 </div>
               </div>
@@ -75,25 +124,23 @@ const AddReview = () => {
                   <textarea
                     className='block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500'
                     type='text'
+                    id='message'
                     placeholder='Add message'
+                    onChange={handleReviewdata}
                   >
-                    Value
+                    {reviewdata.message}
                   </textarea>
                 </div>
               </div>
               <div className='-mx-3 mb-6'>
                 <div className='w-11/12 lg:w-full mx-auto px-3 flex justify-start items-center'>
                   <label
-                    className='block tracking-wide my-auto text-black text-sm font-bold mb-2'
+                    className='block tracking-wide my-auto mr-4 text-black text-sm font-bold mb-2'
                     for='grid-last-name'
                   >
                     Ratting:
                   </label>
-                  {/* <input
-                      className='block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500'
-                      type='text'
-                      placeholder='Add ratting out of 5'
-                    /> */}
+
                   <ReactStars
                     classNames='my-auto ml-2'
                     count={5}
