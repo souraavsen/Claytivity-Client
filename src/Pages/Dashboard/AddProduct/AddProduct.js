@@ -5,19 +5,22 @@ import { useHistory } from "react-router-dom";
 const AddProduct = () => {
   const history = useHistory();
 
-  const [plandata, setPlandata] = useState({
+  const initial = {
     name: "",
     description: "",
-    image: "",
+    img: "",
     price: "",
-  });
+    ratting: "5",
+    total_ratings: "1",
+  };
+  const [productdata, setProductdata] = useState(initial);
 
   const [ifsaved, setIfsaved] = useState(false);
 
-  const handlePlanData = (e) => {
-    const data = { ...plandata };
+  const handleproductdata = (e) => {
+    const data = { ...productdata };
     data[e.target.id] = e.target.value;
-    setPlandata(data);
+    setProductdata(data);
     setIfsaved(false);
   };
 
@@ -25,26 +28,20 @@ const AddProduct = () => {
     e.preventDefault();
 
     axios
-      .post(
-        "https://bloodcurdling-warlock-64846.herokuapp.com/add-plans",
-        plandata
-      )
+      .post("http://127.0.0.1:5000/add-product", productdata)
       .then((res) => {
         console.log(res);
-        setPlandata({
-          name: "",
-          description: "",
-          image: "",
-          price: "",
-        });
+        setProductdata(initial);
         setIfsaved(true);
         e.target.reset();
-        history.push("/all-plans");
+        history.push("/dashboard/manage-products");
       })
       .catch((error) => {
         console.log(error);
       });
   };
+      console.log(productdata);
+
   return (
     <div className=' flex flex-col pt-24'>
       <h1 className='text-center text-4xl font-semibold pb-12'>Add Product</h1>
@@ -64,9 +61,9 @@ const AddProduct = () => {
               className='block w-full bg-gray-200 text-gray-700 border rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white'
               type='text'
               id='name'
-              value={plandata.name}
+              value={productdata.name}
               placeholder='plan name'
-              onChange={(e) => handlePlanData(e)}
+              onChange={(e) => handleproductdata(e)}
             />
           </div>
           <div className='w-11/12 lg:w-full mx-auto md:w-1/2 px-3 pb-3'>
@@ -80,9 +77,9 @@ const AddProduct = () => {
               className='block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500'
               placeholder='description'
               id='description'
-              onChange={(e) => handlePlanData(e)}
+              onChange={(e) => handleproductdata(e)}
             >
-              {ifsaved ? "" : plandata.description}
+              {ifsaved ? "" : productdata.description}
             </textarea>
           </div>
 
@@ -96,10 +93,10 @@ const AddProduct = () => {
             <input
               className='block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500'
               type='text'
-              id='image'
-              value={plandata.image}
+              id='img'
+              value={productdata.img}
               placeholder='image link'
-              onChange={(e) => handlePlanData(e)}
+              onChange={(e) => handleproductdata(e)}
             />
           </div>
 
@@ -114,9 +111,9 @@ const AddProduct = () => {
               className='block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500'
               type='text'
               id='price'
-              value={plandata.price}
+              value={productdata.price}
               placeholder='amount'
-              onChange={(e) => handlePlanData(e)}
+              onChange={(e) => handleproductdata(e)}
             />
           </div>
         </div>

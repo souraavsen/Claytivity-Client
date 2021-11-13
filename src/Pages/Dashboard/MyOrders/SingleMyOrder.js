@@ -6,7 +6,7 @@ const SingleMyOrder = () => {
     <div>
       <div className='max-w-lg lg:flex justify-center rounded-tl-lg rounded-tr-lg rounded-br-lg'>
         <div className='order_card h-48 lg:h-auto lg:w-48 flex-none text-center overflow-hidden'></div>
-        <div className='border-r border-b border-l border-gray-400 lg:border-l-0 lg:border-t lg:border-gray-400 bg-white rounded-b lg:rounded-b-none lg:rounded-r p-4 flex flex-col justify-between leading-normal'>
+        <div className='border-2 bg-white rounded-b lg:rounded-b-none lg:rounded-r p-4 flex flex-col justify-between leading-normal shadow-md'>
           <div className='mb-2'>
             <div className='flex justify-between items-center'>
               <p className='text-gray-600'>Aug 18</p>

@@ -1,89 +1,56 @@
 import React, { useEffect, useRef, useState } from "react";
-import { Link, useHistory, useParams } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import useAuth from "../../../Hooks/useAuth";
-import NavbarSection from "../../../Shared/Navbar/NavbarSection";
 import axios from "axios";
 import { Card } from "react-bootstrap";
-import { Modal, Button } from "react-bootstrap";
+import { Modal } from "react-bootstrap";
 
 const OrderForm = (props) => {
-  const [loading, setLoading] = useState(true);
-  const [modalShow, setModalShow] = useState(false);
-  const [allBookings, setAllBookings] = useState([]);
+  // const [loading, setLoading] = useState(true);
+  // const [allBookings, setAllBookings] = useState([]);
 
-  const planId = useParams();
+  const date = new Date();
+
   const history = useHistory();
   const { user } = useAuth();
 
-  const usernameref = useRef();
-  const useremailref = useRef();
-  const product_nameref = useRef();
-  const packageIdref = useRef();
+  // const usernameref = useRef();
+  // const useremailref = useRef();
+  // const product_nameref = useRef();
+  // const productIdref = useRef();
 
-  const [orderdata, setOrderdata] = useState({
-    username: "",
-    email: "",
-    product_id: "",
-    product_name: "",
+  const initial = {
+    username: user.displayName,
+    email: user.email,
+    product_id: props.planDetails._id,
+    product_name: props.planDetails.product_name,
+    product_img: props.planDetails.img,
+    product_price: props.planDetails.price,
     contact: "",
     transiction: "",
     quantity: "",
     address: "",
+    date: date.toLocaleDateString(),
     status: "Pending",
-  });
+  };
+  const [orderdata, setOrderdata] = useState(initial);
 
-  useEffect(() => {
-    // fetch(
-    //   `https://bloodcurdling-warlock-64846.herokuapp.com/plan-details/${planId.id}`
-    // )
-    //   .then((res) => res.json())
-    //   .then((data) => {
-    //     setPlanDetails(data);
-    //   });
-  }, []);
-
-  useEffect(() => {
-    // fetch(
-    //   `https://bloodcurdling-warlock-64846.herokuapp.com/booking-details/${planId.id}`
-    // )
-    //   .then((res) => res.json())
-    //   .then((data) => {
-    //     setJoinusers(data);
-    //   });
-  }, []);
 
   const handleorderdata = (e) => {
     const data = { ...orderdata };
     data[e.target.id] = e.target.value;
-    data.username = usernameref.current.value;
-    data.email = useremailref.current.value;
-    data.product_id = packageIdref.current.value;
-    data.product_name = product_nameref.current.value;
     setOrderdata(data);
   };
 
-  const bookPlan = (e) => {
+  const orderItem = (e) => {
     e.preventDefault();
 
     axios
-      .post(
-        "https://bloodcurdling-warlock-64846.herokuapp.com/add-booking",
-        orderdata
-      )
+      .post("http://127.0.0.1:5000/add-booking", orderdata)
       .then((res) => {
         e.target.reset();
-        setOrderdata({
-          username: "",
-          email: "",
-          product_id: "",
-          product_name: "",
-          contact: "",
-          transiction: "",
-          quantity: "",
-          address: "",
-          status: "Painding",
-        });
-        window.alert("Plan Booked Succefully.");
+        setOrderdata(initial);
+        window.alert("Item Ordered Succefully.");
         history.push("/dashboard/myorders");
       })
       .catch((error) => {
@@ -91,20 +58,15 @@ const OrderForm = (props) => {
       });
   };
 
-  useEffect(() => {
-    fetch(`https://bloodcurdling-warlock-64846.herokuapp.com/all-bookings`)
-      .then((res) => res.json())
-      .then((data) => {
-        setAllBookings(data);
-        setLoading(false);
-      });
-  }, []);
+  // useEffect(() => {
+  //   fetch(`https://bloodcurdling-warlock-64846.herokuapp.com/all-bookings`)
+  //     .then((res) => res.json())
+  //     .then((data) => {
+  //       setAllBookings(data);
+  //       setLoading(false);
+  //     });
+  // }, []);
 
-  const ifUserBooked = allBookings.filter((info) => info.email === user.email);
-  console.log(ifUserBooked);
-  let ifPlan = ifUserBooked.filter(
-    (plan) => plan.product_id === props.planDetails._id
-  );
 
   return (
     <div>
@@ -121,8 +83,31 @@ const OrderForm = (props) => {
         </Modal.Header>
         <Modal.Body>
           <div className='mt-8'>
-            <div className='container lg:flex justify-center items-center'>
-              <form onSubmit={(e) => bookPlan(e)}>
+            <div className='container lg:flex flex-col justify-center items-center'>
+              <div className='w-5/12 mx-auto mb-6'>
+                <Card className='bg-dark text-white'>
+                  <Card.Img src={props.planDetails.img} alt='Card image' />
+                  <Card.ImgOverlay className='bg-gray-800 bg-opacity-50 flex flex-col justify-center items-center'>
+                    <Card.Title className='font-semibold text-sm pb-4'>
+                      {props.planDetails.product_name}
+                    </Card.Title>
+                    <Card.Text>{date.toLocaleDateString()}</Card.Text>
+                    <div className='flex justify-between pt-6 items-center'>
+                      <Card.Text className='text-white text-opacity-90 text-2xl font-bold'>
+                        ${props.planDetails.price}
+                      </Card.Text>
+
+                      <img src='' width='15%' alt='' />
+                    </div>
+                    <img
+                      className='w-24 left-3 top-3 absolute'
+                      src='https://i.ibb.co/xHxN16t/images-removebg-preview.png'
+                      alt=''
+                    />
+                  </Card.ImgOverlay>
+                </Card>
+              </div>
+              <form onSubmit={(e) => orderItem(e)}>
                 <div className='flex flex-wrap mt-1'>
                   <div className='w-full flex justify-between md:mx-6'>
                     <div className='w-full px-3 mb-6 md:mb-0'>
@@ -137,7 +122,7 @@ const OrderForm = (props) => {
                         type='text'
                         id='username'
                         value={user.displayName}
-                        ref={usernameref}
+                        // ref={usernameref}
                         placeholder='user name'
                         readOnly
                         onChange={(e) => handleorderdata(e)}
@@ -156,7 +141,7 @@ const OrderForm = (props) => {
                         type='text'
                         id='email'
                         value={user.email}
-                        ref={useremailref}
+                        // ref={useremailref}
                         placeholder='email'
                         readOnly
                         onChange={(e) => handleorderdata(e)}
@@ -169,7 +154,7 @@ const OrderForm = (props) => {
                       id='product_id'
                       type='hidden'
                       value={props.planDetails._id}
-                      ref={packageIdref}
+                      // ref={productIdref}
                     />
 
                     <div className='w-full px-3 mb-6 pt-3 md:mb-0'>
@@ -183,9 +168,9 @@ const OrderForm = (props) => {
                         className='block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500'
                         type='text'
                         id='product_name'
-                        value={props.planDetails.name}
+                        value={props.planDetails.product_name}
                         readOnly
-                        ref={product_nameref}
+                        // ref={product_nameref}
                         placeholder='Package Name'
                         onChange={(e) => handleorderdata(e)}
                       />
@@ -280,25 +265,6 @@ const OrderForm = (props) => {
                   </button>
                 </div>
               </form>
-
-              <div className='w-11/12 mx-auto mt-7 mb-auto'>
-                <Card className='bg-dark text-white'>
-                  <Card.Img src={props.planDetails.image} alt='Card image' />
-                  <Card.ImgOverlay className='bg-gray-800 bg-opacity-50 flex flex-col justify-center items-center'>
-                    <Card.Title className='font-semibold text-3xl pb-4'>
-                      {props.planDetails.name}
-                    </Card.Title>
-                    <Card.Text>{props.planDetails.date}</Card.Text>
-                    <Card.Text>{props.planDetails.duration} Days</Card.Text>
-                    <div className='flex justify-around pt-6 items-center'>
-                      <Card.Text className='text-yellow-700 text-opacity-90 text-2xl font-bold'>
-                        ${props.planDetails.price}
-                      </Card.Text>
-                      <img src='' width='15%' alt='' />
-                    </div>
-                  </Card.ImgOverlay>
-                </Card>
-              </div>
             </div>
           </div>
         </Modal.Body>

@@ -1,8 +1,20 @@
-import React from "react";
+import { React, useState, useEffect } from "react";
 import SingleProduct from "./SingleProduct";
 import NavbarSection from '../../Shared/Navbar/NavbarSection'
 
 const ExploreAllProducts = () => {
+    const [allproducts, setAllproducts] = useState([]);
+    const [loading, setLoading] = useState(true);
+
+
+    useEffect(() => {
+      fetch(`http://127.0.0.1:5000/all-products`)
+        .then((res) => res.json())
+        .then((data) => {
+          setAllproducts(data);
+          setLoading(false);
+        });
+    }, []);
   return (
     <>
       <NavbarSection></NavbarSection>
@@ -10,15 +22,23 @@ const ExploreAllProducts = () => {
         <h1 className='text-center text-4xl font-semibold pb-12'>
           Explore All Products
         </h1>
-        <div className='w-11/12 md:w-9/12 mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4'>
-          <SingleProduct></SingleProduct>
-          <SingleProduct></SingleProduct>
-          <SingleProduct></SingleProduct>
-          <SingleProduct></SingleProduct>
-          <SingleProduct></SingleProduct>
-          <SingleProduct></SingleProduct>
-          <SingleProduct></SingleProduct>
-        </div>
+        {loading ? (
+          <div className='sk-folding-cube'>
+            <div className='sk-cube1 sk-cube'></div>
+            <div className='sk-cube2 sk-cube'></div>
+            <div className='sk-cube4 sk-cube'></div>
+            <div className='sk-cube3 sk-cube'></div>
+          </div>
+        ) : (
+          <div className='w-11/12 md:w-9/12 mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4'>
+            {allproducts.map((product) => (
+              <SingleProduct
+                key={product._id}
+                product={product}
+              ></SingleProduct>
+            ))}
+          </div>
+        )}
       </div>
     </>
   );

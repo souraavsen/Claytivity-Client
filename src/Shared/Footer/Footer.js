@@ -10,7 +10,7 @@ const Footer = () => {
       </div>
 
       <div className='footer_background footer_container'>
-        <div className='bg-gray-900 bg-opacity-70 backdrop-filter backdrop-blur-sm pt-8 flex flex-col justify-center items-center'>
+        <div className='bg-gray-900 bg-opacity-80 backdrop-filter backdrop-blur-sm pt-8 flex flex-col justify-center items-center'>
           <div className='container md:flex justify-around align-center pt-3'>
             <div className='px-3 px-lg-0'>
               <div>

@@ -37,9 +37,9 @@ const useFirebase = () => {
   const SingUpWithEmail = (e) => {
     e.preventDefault();
     // verifying password strength
-     if (!/(?=.*[A-Z])(?=.*[0-9])(?=.*[a-z]).{6}/.test(password)) {
+     if (!/(?=.*[0-9]).{6}/.test(password)) {
        setError(
-         "Password should be at least of 6 characters also must have one uppercase letter, one digits and one lowercase letter"
+         "Password should be at least of 6 characters, one digits and one lowercase letter"
        );
        return;
     }
