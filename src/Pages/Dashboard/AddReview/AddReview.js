@@ -5,11 +5,14 @@ import ReactStars from "react-stars";
 import axios from "axios";
 import userlogo from "../../../Images/userlogo.png";
 import { useHistory } from "react-router-dom";
+import { Alert } from "@mui/material";
 
 const AddReview = () => {
   const history = useHistory();
   const { user } = useAuth();
   const [rating, setRating] = useState();
+  const [successf, setSuccessf] = useState(false);
+  const [errorf, setErrorf] = useState(false);
 
   const initial = {
     username: user.displayName,
@@ -28,16 +31,14 @@ const AddReview = () => {
 
   const data = {
     ...reviewdata,
-    ratting: rating
-  }
+    ratting: rating,
+  };
 
   console.log(data);
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const permission = window.confirm(
-      "Review added successfully."
-    );
+    const permission = window.confirm("Review added successfully.");
     if (permission) {
       axios
         .post("http://127.0.0.1:5000/add-review", data)
@@ -45,13 +46,21 @@ const AddReview = () => {
           console.log(res);
           setReviewdata(initial);
           e.target.reset();
-          history.push("/");
+          setSuccessf(true)
         })
         .catch((error) => {
           console.log(error);
+          setErrorf(true);
         });
     }
   };
+
+  setTimeout(() => {
+    if (successf || errorf) {
+      setSuccessf(false);
+      setErrorf(false);
+    }
+  }, 3000);
 
   const ratingChanged = (newRating) => {
     setRating(newRating);
@@ -163,6 +172,28 @@ const AddReview = () => {
                   <i className='fas fa-location-arrow'></i>
                 </button>
               </div>
+              {successf && (
+                <Alert
+                className='mt-4'
+                  severity='success'
+                  onClose={() => {
+                    setSuccessf(false);
+                  }}
+                >
+                  Review added successfully
+                </Alert>
+              )}
+              {errorf && (
+                <Alert
+                className='mt-4'
+                  severity='error'
+                  onClose={() => {
+                    setErrorf(false);
+                  }}
+                >
+                  Something Went Wrong
+                </Alert>
+              )}
             </form>
           </div>
           <div className='md:w-7/12 md:h-full flex justify-start items-center -mr-3 rounded-tl-xl'>

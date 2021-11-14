@@ -1,10 +1,14 @@
-import React from 'react'
+import React from "react";
 import { Link } from "react-router-dom";
 // for displaying rating in star
 import ReactStars from "react-rating-stars-component";
-import './ExploreAllProducts.css'
+import "./ExploreAllProducts.css";
+import useAuth from '../../Hooks/useAuth'
 
 const SingleProduct = ({ product }) => {
+
+  const {admin} = useAuth()
+
   return (
     <div className='mx-auto'>
       <div className='mt-10 z-0 px-2 pb-4 bg-white border-2 flex flex-col items-center justify-center shadow-md rounded-bl-xl rounded-br-xl'>
@@ -52,20 +56,34 @@ const SingleProduct = ({ product }) => {
             </span>
           </p>
         </div>
-        <Link
-          to={`/product-details/${product._id}`}
-          className='explore_btn mt-3 text-black font-semibold py-1 rounded'
-        >
-          <button className='productbtn mx-auto'>
-            <span aria-hidden='true' className='circle'>
-              <span className='icon arrow'></span>
-            </span>
-            <span className='productbtn-text'>View More</span>
-          </button>
-        </Link>
+        {admin ? (
+          <Link
+            to={`/product-details/${product._id}`}
+            className='explore_btn mt-3 text-black font-semibold py-1 rounded'
+          >
+            <button className='productbtn mx-auto'>
+              <span aria-hidden='true' className='circle'>
+                <span className='icon arrow'></span>
+              </span>
+              <span className='productbtn-text'>Details</span>
+            </button>
+          </Link>
+        ) : (
+          <Link
+            to={`/product-details/${product._id}`}
+            className='explore_btn mt-3 text-black font-semibold py-1 rounded'
+          >
+            <button className='productbtn mx-auto'>
+              <span aria-hidden='true' className='circle'>
+                <span className='icon arrow'></span>
+              </span>
+              <span className='productbtn-text text-center'>Purchase</span>
+            </button>
+          </Link>
+        )}
       </div>
     </div>
   );
 };
 
-export default SingleProduct
+export default SingleProduct;

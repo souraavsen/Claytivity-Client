@@ -1,15 +1,12 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useHistory, useParams } from "react-router-dom";
 import useAuth from "../../../Hooks/useAuth";
 import NavbarSection from "../../../Shared/Navbar/NavbarSection";
-import axios from "axios";
-import { Card } from "react-bootstrap";
+
 import OrderForm from "./OrderForm";
 
 const ProductDetails = () => {
   const [planDetails, setPlanDetails] = useState({});
-  //   const [joinflag, setJoinflag] = useState(false);
-  const [joinusers, setJoinusers] = useState([]);
   const [loading, setLoading] = useState(true);
   const [modalShow, setModalShow] = useState(false);
   const [allBookings, setAllBookings] = useState([]);
@@ -17,40 +14,16 @@ const ProductDetails = () => {
   const productId = useParams();
   console.log(productId.productId);
   const history = useHistory();
-  const { user } = useAuth();
+  const { admin } = useAuth();
 
   useEffect(() => {
     fetch(`http://127.0.0.1:5000/product-details/${productId.id}`)
       .then((res) => res.json())
       .then((data) => {
         setPlanDetails(data);
-      });
-  }, []);
-
-  useEffect(() => {
-    // fetch(
-    //   `https://bloodcurdling-warlock-64846.herokuapp.com/booking-details/${planId.id}`
-    // )
-    //   .then((res) => res.json())
-    //   .then((data) => {
-    //     setJoinusers(data);
-    //   });
-  }, []);
-
-  useEffect(() => {
-    fetch(`https://bloodcurdling-warlock-64846.herokuapp.com/all-bookings`)
-      .then((res) => res.json())
-      .then((data) => {
-        setAllBookings(data);
         setLoading(false);
       });
   }, []);
-
-  const ifUserBooked = allBookings.filter((info) => info.email === user.email);
-  console.log(ifUserBooked);
-  let ifPlan = ifUserBooked.filter(
-    (plan) => plan.package_id === planDetails._id
-  );
 
   return (
     <>
@@ -67,7 +40,7 @@ const ProductDetails = () => {
           </div>
         ) : (
           <>
-            <div className='container lg:flex md:flex justify-between px-8 py-12 bg-white'>
+            <div className='container lg:flex md:flex justify-between px-8 py-12 bg-white rounded-tl-lg rounded-tr-lg rounded-br-lg'>
               <img
                 className='rounded-md shadow-md md:w-4/12 mx-auto p-2'
                 src={
@@ -94,20 +67,22 @@ const ProductDetails = () => {
                   </span>{" "}
                   only
                 </h4>
-                <div className='flex justify-center items-center'>
-                  <button
-                    className='px-4 py-2 font-semibold rounded-tl-lg rounded-tr-lg rounded-br-lg hover:bg-opacity-40 mt-4 md:my-0 text-white bg-yellow-800 bg-opacity-50'
-                    //   onClick={() => setJoinflag(!joinflag)}
-                    onClick={() => setModalShow(true)}
-                  >
-                    Purchase
-                  </button>
-                  <OrderForm
-                    show={modalShow}
-                    planDetails={planDetails}
-                    onHide={() => setModalShow(false)}
-                  />
-                </div>
+                {!admin && (
+                  <div className='flex justify-center items-center'>
+                    <button
+                      className='px-4 py-2 font-semibold rounded-tl-lg rounded-tr-lg rounded-br-lg hover:bg-opacity-40 mt-4 md:my-0 text-white bg-yellow-800 bg-opacity-50'
+                      //   onClick={() => setJoinflag(!joinflag)}
+                      onClick={() => setModalShow(true)}
+                    >
+                      Purchase
+                    </button>
+                    <OrderForm
+                      show={modalShow}
+                      planDetails={planDetails}
+                      onHide={() => setModalShow(false)}
+                    />
+                  </div>
+                )}
               </div>
             </div>
           </>

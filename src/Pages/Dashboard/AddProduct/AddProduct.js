@@ -1,9 +1,10 @@
 import React, { useState } from "react";
 import axios from "axios";
-import { useHistory } from "react-router-dom";
+import { Alert } from "@mui/material";
 
 const AddProduct = () => {
-  const history = useHistory();
+  const [successf, setSuccessf] = useState(false);
+  const [errorf, setErrorf] = useState(false)
 
   const initial = {
     name: "",
@@ -34,18 +35,28 @@ const AddProduct = () => {
         setProductdata(initial);
         setIfsaved(true);
         e.target.reset();
-        history.push("/dashboard/manage-products");
+        setSuccessf(true);
+        // history.push("/all-products");
       })
       .catch((error) => {
         console.log(error);
+        setErrorf(true);
+
       });
   };
+
+  setTimeout(() => {
+    if (successf || errorf) {
+      setSuccessf(false)
+      setErrorf(false)
+    }
+  }, 3000);
 
   return (
     <div className=' flex flex-col pt-24'>
       <h1 className='text-center text-4xl font-semibold pb-12'>Add Product</h1>
       <form
-        className='w-full mx-auto md:max-w-3xl md:px-8 py-12 font-semibold rounded-tl-lg rounded-tr-lg rounded-br-lg my-2 md:my-0 text-white bg-yellow-800 bg-opacity-50 shadow-md'
+        className='w-full mx-auto mb-4 md:max-w-3xl md:px-8 py-12 font-semibold rounded-tl-lg rounded-tr-lg rounded-br-lg my-2 md:my-0 text-white bg-yellow-800 bg-opacity-50 shadow-md'
         onSubmit={(e) => handleSubmit(e)}
       >
         <div className='flex flex-wrap -mx-3 mb-6'>
@@ -126,6 +137,26 @@ const AddProduct = () => {
           </button>
         </div>
       </form>
+      {successf && (
+        <Alert
+          severity='success'
+          onClose={() => {
+            setSuccessf(false);
+          }}
+        >
+          Product added successfully
+        </Alert>
+      )}
+      {errorf && (
+        <Alert
+          severity='error'
+          onClose={() => {
+            setErrorf(false);
+          }}
+        >
+          Something Went Wrong
+        </Alert>
+      )}
     </div>
   );
 };

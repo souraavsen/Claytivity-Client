@@ -2,9 +2,9 @@ import React from "react";
 import { Link } from "react-router-dom";
 // for displaying rating in star
 import ReactStars from "react-rating-stars-component";
-import './HomeProduct.css'
+import "./HomeProduct.css";
 
-const Product = ({product}) => {
+const Product = ({ product }) => {
   return (
     <div className='mx-auto'>
       <div className='mt-10 z-0 px-2 pb-4 bg-white border-2 flex flex-col items-center justify-center shadow-md rounded-bl-xl rounded-br-xl'>
@@ -61,7 +61,7 @@ const Product = ({product}) => {
             <span aria-hidden='true' className='circle'>
               <span className='icon arrow'></span>
             </span>
-            <span className='productbtn-text'>View More</span>
+            <span className='productbtn-text'>Purchase</span>
           </button>
         </Link>
       </div>

@@ -22,6 +22,7 @@ const useFirebase = () => {
   const [lastname, setLastName] = useState("");
   const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(true);
+  const [admin, setAdmin] = useState(false);
   const [error, setError] = useState("");
 
   // this part is for changing route of user after login
@@ -37,17 +38,18 @@ const useFirebase = () => {
   const SingUpWithEmail = (e) => {
     e.preventDefault();
     // verifying password strength
-     if (!/(?=.*[0-9]).{6}/.test(password)) {
-       setError(
-         "Password should be at least of 6 characters, one digits and one lowercase letter"
-       );
-       return;
+    if (!/(?=.*[0-9]).{6}/.test(password)) {
+      setError(
+        "Password should be at least of 6 characters and at least one digits"
+      );
+      return;
     }
     createUserWithEmailAndPassword(auth, email, password)
       .then((res) => {
         // user's info after signed in
         setUserDetails();
         setUser(res.user);
+        saveUser(email, name, "POST");
         history.push(redirect_url);
         setError("");
       })
@@ -70,7 +72,7 @@ const useFirebase = () => {
       });
   };
 
-  const name = firstname + ' ' + lastname
+  const name = firstname + " " + lastname;
   const setUserDetails = () => {
     updateProfile(auth.currentUser, { displayName: name })
       .then((result) => {
@@ -81,7 +83,6 @@ const useFirebase = () => {
       });
   };
 
-
   // Function for signin with google
   const googleSignin = () => {
     setLoading(true);
@@ -89,6 +90,7 @@ const useFirebase = () => {
     signInWithPopup(auth, gAuthProvider)
       .then((result) => {
         setUser(result.user);
+        saveUser(result.user.email, result.user.displayName, "PUT");
         history.push(redirect_url);
       })
       .finally(() => setLoading(false));
@@ -106,6 +108,29 @@ const useFirebase = () => {
     });
   }, []);
 
+  const saveUser = (email, displayName, method) => {
+    const user = { email, displayName };
+    fetch("http://127.0.0.1:5000/users", {
+      method: method,
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(user),
+    }).then();
+  };
+
+  useEffect(() => {
+    let isAdmin = false;
+    fetch(`http://127.0.0.1:5000/users/${user.email}`)
+      .then((res) => res.json())
+      .then((data) => {
+        if (data?.role === "admin") {
+          isAdmin = true;
+        }
+        setAdmin(isAdmin);
+      });
+  }, [user.email]);
+
   // Log out code
   const googleSignOut = () => {
     signOut(auth)
@@ -115,7 +140,7 @@ const useFirebase = () => {
       .finally(() => setLoading(false));
   };
 
-  // returning all essential function and others
+  // returning all essentials
   return {
     user,
     loading,
@@ -129,6 +154,8 @@ const useFirebase = () => {
     setError,
     setFirstName,
     setLastName,
+    admin,
+    setAdmin,
   };
 };
 

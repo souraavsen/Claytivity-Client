@@ -4,7 +4,7 @@ import "./Review.css";
 
 const SingleReview = ({ review }) => {
   return (
-    <div className='review_background md:min-h-72 '>
+    <div className='review_background md:h-80 '>
       <div className='py-16 bg-gray-900 bg-opacity-70 backdrop-filter backdrop-blur-sm'>
         <div className='container md:flex justify-evelny items-center'>
           <div className='md:w-1/4'>
@@ -14,7 +14,7 @@ const SingleReview = ({ review }) => {
               alt=''
             />
           </div>
-          <div className='md:w-3/4 mx-auto'>
+          <div className='px-4 md:w-3/4 mx-auto'>
             <div className='py-4'>
               <svg
                 xmlns='http://www.w3.org/2000/svg'

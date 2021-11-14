@@ -1,7 +1,39 @@
-import React from "react";
+import { Alert } from "@mui/material";
+import React, {  useState } from "react";
 import adminimg from "../../../Images/addAdmin.gif";
+import axios from "axios";
 
 const AddAdmin = () => {
+  const [successf, setSuccessf] = useState(false);
+  const [errorf, setErrorf] = useState(false);
+  const [email, setEmail] = useState("");
+
+  console.log(email);
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const permission = window.confirm("Admin added successfully.");
+    if (permission) {
+      axios
+        .put("http://127.0.0.1:5000/users/admin", { email: email })
+        .then((res) => {
+          console.log(res);
+          e.target.reset();
+          setSuccessf(true);
+        })
+        .catch((error) => {
+          console.log(error);
+          setErrorf(true);
+        });
+    }
+  };
+
+  setTimeout(() => {
+    if (successf || errorf) {
+      setSuccessf(false);
+      setErrorf(false);
+    }
+  }, 3000);
+
   return (
     <div className='pt-24 pb-12'>
       <h1 className='text-center text-4xl font-semibold pb-12'>
@@ -19,9 +51,9 @@ const AddAdmin = () => {
 
           <form
             className='mb-8'
-            // onSubmit={(e) => {
-            //   signInWithEmail(e);
-            // }}
+            onSubmit={(e) => {
+              handleSubmit(e);
+            }}
           >
             <div className='-mx-3 mb-6'>
               <div className='w-11/12 lg:w-full mx-auto px-3'>
@@ -36,7 +68,9 @@ const AddAdmin = () => {
                   type='email'
                   required
                   placeholder='email'
-                  // onChange={handleEmail}
+                  onChange={(e) => {
+                    setEmail(e.target.value);
+                  }}
                 />
               </div>
             </div>
@@ -49,6 +83,28 @@ const AddAdmin = () => {
               </button>
             </div>
           </form>
+          {successf && (
+            <Alert
+              className='w-9/12 mx-auto'
+              severity='success'
+              onClose={() => {
+                setSuccessf(false);
+              }}
+            >
+              {email} added as an Admin
+            </Alert>
+          )}
+          {errorf && (
+            <Alert
+              className='w-9/12 mx-auto'
+              severity='error'
+              onClose={() => {
+                setErrorf(false);
+              }}
+            >
+              Something Went Wrong
+            </Alert>
+          )}
         </div>
       </div>
     </div>

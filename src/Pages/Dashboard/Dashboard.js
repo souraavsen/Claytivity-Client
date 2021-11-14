@@ -81,7 +81,7 @@ const DrawerHeader = styled("div")(({ theme }) => ({
 export default function Dashboard() {
   const theme = useTheme();
   const [open, setOpen] = React.useState(false);
-  const { user, googleSignOut } = useAuth();
+  const { user, googleSignOut, admin } = useAuth();
   let { path, url } = useRouteMatch();
 
   let userimg;
@@ -158,7 +158,10 @@ export default function Dashboard() {
                     className='dropdown-menu dropdown-menu-right py-2 mt-2 shadow-sm bg-gray-50 bg-opacity-80 backdrop-filter backdrop-blur-md'
                     aria-labelledby='dropdownMenu2'
                   >
-                    <button className='dropdown-item font-extrabold' type='button'>
+                    <button
+                      className='dropdown-item font-extrabold'
+                      type='button'
+                    >
                       {user?.displayName}
                     </button>
                     <button className='dropdown-item' type='button'>
@@ -236,78 +239,101 @@ export default function Dashboard() {
         </DrawerHeader>
         <Divider />
 
-        <Link className='text-black hover:text-black' to={`${url}/add-product`}>
-          <ListItem button>
-            <ListItemIcon>
-              <i className='fas fa-plus'></i>
-            </ListItemIcon>
-            Add Product
-            {/* <ListItemText primary={"Add Product"} /> */}
-          </ListItem>
-        </Link>
+        {admin && (
+          <>
+            <Link
+              className='text-black hover:text-black'
+              to={`${url}/add-product`}
+            >
+              <ListItem button>
+                <ListItemIcon>
+                  <i className='fas fa-plus'></i>
+                </ListItemIcon>
+                Add Product
+                {/* <ListItemText primary={"Add Product"} /> */}
+              </ListItem>
+            </Link>
 
-        <Link
-          className='text-black hover:text-black'
-          to={`${url}/manage-all-orders`}
-        >
-          <ListItem button>
-            <ListItemIcon>
-              <i className='fas fa-tasks'></i>
-            </ListItemIcon>
-            Manage Orders
-          </ListItem>
-        </Link>
+            <Link
+              className='text-black hover:text-black'
+              to={`${url}/manage-all-orders`}
+            >
+              <ListItem button>
+                <ListItemIcon>
+                  <i className='fas fa-tasks'></i>
+                </ListItemIcon>
+                Manage Orders
+              </ListItem>
+            </Link>
 
-        <Link className='text-black hover:text-black' to={`${url}/add-admin`}>
-          <ListItem button>
-            <ListItemIcon>
-              <i className='fas fa-user-shield'></i>
-            </ListItemIcon>
-            Add Admin
-          </ListItem>
-        </Link>
+            <Link
+              className='text-black hover:text-black'
+              to={`${url}/add-admin`}
+            >
+              <ListItem button>
+                <ListItemIcon>
+                  <i className='fas fa-user-shield'></i>
+                </ListItemIcon>
+                Add Admin
+              </ListItem>
+            </Link>
 
-        <Link
-          className='text-black hover:text-black'
-          to={`${url}/manage-products`}
-        >
-          <ListItem button>
-            <ListItemIcon>
-              <ManageSearchIcon></ManageSearchIcon>
-            </ListItemIcon>
-            Manage Products
-          </ListItem>
-        </Link>
+            <Link
+              className='text-black hover:text-black'
+              to={`${url}/manage-products`}
+            >
+              <ListItem button>
+                <ListItemIcon>
+                  <ManageSearchIcon></ManageSearchIcon>
+                </ListItemIcon>
+                Manage Products
+              </ListItem>
+            </Link>
+          </>
+        )}
 
         <Divider />
 
-        <Link className='text-black hover:text-black' to={`${url}/myorders`}>
-          <ListItem button>
-            <ListItemIcon>
-              <ReorderOutlinedIcon />
-            </ListItemIcon>
-            My Orders
-          </ListItem>
-        </Link>
+        {!admin &&
+          <>
+            <Link
+              className='text-black hover:text-black'
+              to={`${url}/myorders`}
+            >
+              <ListItem button>
+                <ListItemIcon>
+                  <ReorderOutlinedIcon />
+                </ListItemIcon>
+                My Orders
+              </ListItem>
+            </Link>
 
-        <Link className='text-black hover:text-black' to={`${url}/add-review`}>
-          <ListItem button>
-            <ListItemIcon>
-              <ReviewsIcon></ReviewsIcon>
-            </ListItemIcon>
-            Add Review
-          </ListItem>
-        </Link>
+            <Link
+              className='text-black hover:text-black'
+              to={`${url}/add-review`}
+            >
+              <ListItem button>
+                <ListItemIcon>
+                  <ReviewsIcon></ReviewsIcon>
+                </ListItemIcon>
+                Add Review
+              </ListItem>
+            </Link>
 
-        <Link className='text-black hover:text-black' to={`${url}/payments`}>
-          <ListItem button>
-            <ListItemIcon>
-              <PaymentsOutlinedIcon />
-            </ListItemIcon>
-            Payments
-          </ListItem>
-        </Link>
-        <Divider />
+            <Link
+              className='text-black hover:text-black'
+              to={`${url}/payments`}
+            >
+              <ListItem button>
+                <ListItemIcon>
+                  <PaymentsOutlinedIcon />
+                </ListItemIcon>
+                Payments
+              </ListItem>
+            </Link>
+            <Divider />
+          </>
+        }
 
         <Link className='text-black hover:text-black block md:hidden' to='/'>
           <ListItem button>
