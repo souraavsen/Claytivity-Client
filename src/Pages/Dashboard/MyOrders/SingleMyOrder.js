@@ -14,26 +14,32 @@ const SingleMyOrder = ({ order, deleteSingleOrder }) => {
         <div className='border-2 md:w-full md:h-full bg-white rounded-b lg:rounded-b-none lg:rounded-r p-4 flex flex-col justify-between leading-normal'>
           <div className='mb-2'>
             <div className='flex justify-between items-center'>
-              <p className='text-gray-600'>{order.date}</p>
+              <p className='text-black'>{order.date}</p>
 
               <p className='w-10 h-10 text-center mb-2 px-1.5 py-1.5 bg-yellow-700 bg-opacity-70 text-white rounded-full'>
                 {order.quantity}
               </p>
             </div>
-            <p className='text-gray-700 overflow-hidden'>{order._id}</p>
+            <p className='text-gray-700 overflow-hidden text-sm'>{order._id}</p>
             <div className='text-gray-900 font-bold text-xl mb-2'>
               {order.product_name}
             </div>
-            <p className='text-gray-700 '>TransictionID:{order.transiction}</p>
-            <p className='text-gray-700 '>Contact:{order.contact}</p>
+            <p className='text-black '>
+              <span className='font-bold'>TransictionID: </span>
+              <span className='text-sm'>{order.transiction}</span>
+            </p>
+            <p className='text-black '>
+              <span className='font-bold'>Contact: </span>
+              {order.contact}
+            </p>
             <h2 className='font-semibold my-2'>
               Status:{" "}
               {order.status === "Pending" ? (
-                <span className='px-3 py-0.5 bg-red-400 text-white rounded-full'>
+                <span className='ml-1 px-3 py-0.5 bg-red-400 text-white rounded-full'>
                   {order.status}
                 </span>
               ) : (
-                <span className='px-3 py-0.5 bg-green-400 text-white rounded-full'>
+                <span className='ml-1 px-3 py-0.5 bg-green-400 text-white rounded-full'>
                   {order.status}
                 </span>
               )}
@@ -51,9 +57,7 @@ const SingleMyOrder = ({ order, deleteSingleOrder }) => {
                   <i className='far fa-trash-alt'></i>
                 </button>
               ) : (
-                <div
-                  className='px-4 mr-2 font-semibold text-lg py-2 rounded-tl-lg rounded-tr-lg rounded-br-lg my-2 md:my-0 text-green-800'
-                  >
+                <div className='px-4 mr-2 font-semibold text-lg py-2 rounded-tl-lg rounded-tr-lg rounded-br-lg my-2 md:my-0 text-green-800'>
                   Thanks for really on us
                 </div>
               )}

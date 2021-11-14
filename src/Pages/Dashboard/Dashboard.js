@@ -241,6 +241,15 @@ export default function Dashboard() {
 
         {admin && (
           <>
+            <Link className='text-black hover:text-black' to={`${url}`}>
+              <ListItem button>
+                <ListItemIcon>
+                  <i class='fas fa-chart-line'></i>
+                </ListItemIcon>
+                Dashboard
+              </ListItem>
+            </Link>
+
             <Link
               className='text-black hover:text-black'
               to={`${url}/add-product`}
@@ -250,7 +259,6 @@ export default function Dashboard() {
                   <i className='fas fa-plus'></i>
                 </ListItemIcon>
                 Add Product
-                {/* <ListItemText primary={"Add Product"} /> */}
               </ListItem>
             </Link>
 
@@ -294,8 +302,17 @@ export default function Dashboard() {
 
         <Divider />
 
-        {!admin &&
+        {!admin && (
           <>
+            <Link className='text-black hover:text-black' to={`${url}`}>
+              <ListItem button>
+                <ListItemIcon>
+                  <i class='fas fa-chart-line'></i>
+                </ListItemIcon>
+                Dashboard
+              </ListItem>
+            </Link>
+
             <Link
               className='text-black hover:text-black'
               to={`${url}/myorders`}
@@ -333,16 +350,8 @@ export default function Dashboard() {
             </Link>
             <Divider />
           </>
-        }
+        )}
 
-        <Link className='text-black hover:text-black block md:hidden' to='/'>
-          <ListItem button>
-            <ListItemIcon>
-              <i className='fas fa-home'></i>
-            </ListItemIcon>
-            Home
-          </ListItem>
-        </Link>
         <Link
           className='text-black hover:text-black block md:hidden'
           to='/all-products'

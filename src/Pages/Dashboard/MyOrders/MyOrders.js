@@ -18,7 +18,7 @@ const MyOrders = () => {
       });
   }, [rerender]);
 
-  const usersOrders = orders.filter((booked) => booked.email === user.email);
+  const usersOrders = orders.filter((order) => order.email === user.email);
 
   const deleteSingleOrder = (id) => {
     const permission = window.confirm("Are you sure want to cancel ?");
