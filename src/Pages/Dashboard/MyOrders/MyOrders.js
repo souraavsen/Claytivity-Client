@@ -48,7 +48,7 @@ const MyOrders = () => {
       ) : (
         <>
           {usersOrders.length == 0 && (
-            <div className='container'>
+            <div className='container h-screen flex justify-center items-center'>
               <div className='-ml-4 flex flex-col justify-center items-center bg-white rounded'>
                 <img
                   className='mx-auto'

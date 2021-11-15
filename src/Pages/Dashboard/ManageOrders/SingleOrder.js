@@ -15,7 +15,7 @@ const SingleOrder = ({ order, deleteSingleOrder, handelUpdatesStatus }) => {
               <h5 className='card-title'>{order.product_name}</h5>
               <p className='card-text text-xs'>Order ID: {order._id}</p>
               <p className='card-text'>Date: {order.date}</p>
-              <p className='card-text'>Price: {order.product_price}</p>
+              <p className='card-text'>Total Cost: {order.total_cost}</p>
             </div>
           </div>
           <h2 className='px-2 font-semibold my-6'>

@@ -46,7 +46,7 @@ const UserDashboard = () => {
         </div>
       ) : (
         <>
-          <div className='container grid grid-cols-1 md:grid-cols-3 gap-6 text-xl'>
+          <div className='w-10/12 md:w-full mx-auto grid grid-cols-1 md:grid-cols-3 gap-6 text-xl'>
             <div className='w-full p-12 text-center bg-white shadow-md rounded-tl-lg rounded-tr-lg rounded-br-lg'>
               <h1>
                 <span className='font-bold'>Total Spent:</span> ${totalCost}
@@ -65,7 +65,6 @@ const UserDashboard = () => {
               </h1>
             </div>
           </div>
-          <div></div>
           <div>
             <h1 className='pt-16 m-auto text-2xl font-semibold'>
               Recently Shipped

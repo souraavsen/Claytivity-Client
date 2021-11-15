@@ -188,6 +188,7 @@ const OrderForm = (props) => {
                       className='block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500'
                       type='text'
                       id='transiction'
+                      required
                       value={orderdata.transiction}
                       placeholder='XXXXXXXXXXXXXXXXXXXX'
                       onChange={(e) => handleorderdata(e)}
@@ -206,6 +207,7 @@ const OrderForm = (props) => {
                       id='quantity'
                       value={orderdata.quantity}
                       placeholder='1'
+                      required
                       onChange={(e) => handleorderdata(e)}
                     />
                   </div>
@@ -222,6 +224,7 @@ const OrderForm = (props) => {
                       id='address'
                       value={orderdata.address}
                       placeholder='address'
+                      required
                       onChange={(e) => handleorderdata(e)}
                     />
                   </div>

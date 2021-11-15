@@ -72,6 +72,7 @@ const AddProduct = () => {
               id='product_name'
               value={productdata.product_name}
               placeholder='product name'
+              required
               onChange={(e) => handleproductdata(e)}
             />
           </div>
@@ -86,6 +87,7 @@ const AddProduct = () => {
               className='block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500'
               placeholder='description'
               id='description'
+              required
               onChange={(e) => handleproductdata(e)}
             >
               {ifsaved ? "" : productdata.description}
@@ -103,6 +105,7 @@ const AddProduct = () => {
               className='block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500'
               type='text'
               id='img'
+              required
               value={productdata.img}
               placeholder='image link'
               onChange={(e) => handleproductdata(e)}
@@ -122,6 +125,7 @@ const AddProduct = () => {
               id='price'
               value={productdata.price}
               placeholder='amount'
+              required
               onChange={(e) => handleproductdata(e)}
             />
           </div>

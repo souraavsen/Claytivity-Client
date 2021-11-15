@@ -2,6 +2,7 @@ import React from "react";
 import { Carousel } from "react-bootstrap";
 import "./Slider.css";
 import Typical from "react-typical";
+import { Link } from "react-router-dom";
 
 
 const Slider = () => {
@@ -35,9 +36,12 @@ const Slider = () => {
                 a resurgence in consumer demand for unique, handmade goods over
                 mass-produced items.
               </p>
-              <button className='w-36 lg:ml-40 mt-4 px-3 py-2 font-semibold rounded-tl-xl rounded-tr-xl rounded-br-xl text-white bg-yellow-800 bg-opacity-60 hover:bg-opacity-50'>
+              <Link
+                to='/all-products'
+                className='w-36 lg:ml-40 mt-4 px-3 py-2 font-semibold rounded-tl-xl rounded-tr-xl rounded-br-xl text-white bg-yellow-800 bg-opacity-60 hover:bg-opacity-50 text-center'
+              >
                 Explore
-              </button>
+              </Link>
             </div>
           </div>
         </Carousel.Item>
@@ -65,9 +69,12 @@ const Slider = () => {
                 Vestonice, discovered in the Czech Republic, a ceramic Venus
                 figurine of a nude female.
               </p>
-              <button className='w-36 lg:ml-40 mt-4 px-3 py-2 font-semibold rounded-tl-xl rounded-tr-xl rounded-br-xl text-white bg-yellow-800 bg-opacity-60 hover:bg-opacity-50'>
+              <Link
+                to='/all-products'
+                className='w-36 lg:ml-40 mt-4 px-3 py-2 font-semibold rounded-tl-xl rounded-tr-xl rounded-br-xl text-white bg-yellow-800 bg-opacity-60 hover:bg-opacity-50 text-center'
+              >
                 Explore
-              </button>
+              </Link>
             </div>
           </div>
         </Carousel.Item>
@@ -96,9 +103,12 @@ const Slider = () => {
                 mug offers, making it a hot-selling item for pottery companies
                 around the world.
               </p>
-              <button className='w-36 lg:ml-40 mt-4 px-3 py-2 font-semibold rounded-tl-xl rounded-tr-xl rounded-br-xl text-white bg-yellow-800 bg-opacity-60 hover:bg-opacity-50'>
+              <Link
+                to='/all-products'
+                className='w-36 lg:ml-40 mt-4 px-3 py-2 font-semibold rounded-tl-xl rounded-tr-xl rounded-br-xl text-white bg-yellow-800 bg-opacity-60 hover:bg-opacity-50 text-center'
+              >
                 Explore
-              </button>
+              </Link>
             </div>
           </div>
         </Carousel.Item>

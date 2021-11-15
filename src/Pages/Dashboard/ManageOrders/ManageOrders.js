@@ -50,7 +50,7 @@ const ManageOrders = () => {
 
   return (
     <div className='lg:py-16'>
-      <h1 className='text-center text-4xl font-semibold pb-12'>
+      <h1 className='text-center text-4xl font-semibold pt-8 pb-12'>
         Manage All Orders
       </h1>
       {loading ? (
