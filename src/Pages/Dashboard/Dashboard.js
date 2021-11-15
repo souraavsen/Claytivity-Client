@@ -352,6 +352,14 @@ export default function Dashboard() {
           </>
         )}
 
+        <Link className='text-black hover:text-black block md:hidden' to='/'>
+          <ListItem button>
+            <ListItemIcon>
+              <i class='fas fa-home'></i>
+            </ListItemIcon>
+            Home
+          </ListItem>
+        </Link>
         <Link
           className='text-black hover:text-black block md:hidden'
           to='/all-products'
