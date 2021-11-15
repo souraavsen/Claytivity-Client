@@ -6,7 +6,6 @@ import Typical from "react-typical";
 
 const Slider = () => {
   return (
-    // bg-gray-900 bg-opacity-40
     <div className='-mt-20'>
       <Carousel fade>
         <Carousel.Item interval={4000}>

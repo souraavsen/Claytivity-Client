@@ -19,7 +19,6 @@ const AddReview = () => {
     useremail: user.email,
     avatar: user.photoURL ? user.photoURL : userlogo,
     message: "",
-    // ratting: "",
   };
   const [reviewdata, setReviewdata] = useState(initial);
 

@@ -38,7 +38,6 @@ const AddProduct = () => {
         setIfsaved(true);
         e.target.reset();
         setSuccessf(true);
-        // history.push("/all-products");
       })
       .catch((error) => {
         setErrorf(true);

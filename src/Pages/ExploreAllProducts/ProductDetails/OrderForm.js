@@ -110,7 +110,6 @@ const OrderForm = (props) => {
                         type='text'
                         id='username'
                         value={user.displayName}
-                        // ref={usernameref}
                         placeholder='user name'
                         readOnly
                         onChange={(e) => handleorderdata(e)}
