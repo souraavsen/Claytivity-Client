@@ -69,7 +69,7 @@ const OrderForm = (props) => {
         <Modal.Body>
           <div className='mt-8'>
             <div className='container lg:flex flex-col justify-center items-center'>
-              <div className='w-5/12 mx-auto mb-6'>
+              <div className='md:w-5/12 mx-auto mb-6'>
                 <Card className='bg-dark text-white'>
                   <Card.Img src={props.productDetails.img} alt='Card image' />
                   <Card.ImgOverlay className='bg-gray-800 bg-opacity-60 flex flex-col justify-center items-center'>
@@ -129,7 +129,6 @@ const OrderForm = (props) => {
                         type='text'
                         id='email'
                         value={user.email}
-                        // ref={useremailref}
                         placeholder='email'
                         readOnly
                         onChange={(e) => handleorderdata(e)}
@@ -142,7 +141,6 @@ const OrderForm = (props) => {
                       id='product_id'
                       type='hidden'
                       value={props.productDetails._id}
-                      // ref={productIdref}
                     />
 
                     <div className='w-full px-3 mb-6 pt-3 md:mb-0'>
@@ -158,7 +156,6 @@ const OrderForm = (props) => {
                         id='product_name'
                         value={props.productDetails.product_name}
                         readOnly
-                        // ref={product_nameref}
                         placeholder='Package Name'
                         onChange={(e) => handleorderdata(e)}
                       />

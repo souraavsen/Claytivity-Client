@@ -22,11 +22,13 @@ const ExploreAllProducts = () => {
           Explore All Products
         </h1>
         {loading ? (
-          <div className='sk-folding-cube'>
-            <div className='sk-cube1 sk-cube'></div>
-            <div className='sk-cube2 sk-cube'></div>
-            <div className='sk-cube4 sk-cube'></div>
-            <div className='sk-cube3 sk-cube'></div>
+          <div className='w-screen h-screen flex justify-center items-center -mt-20'>
+            <div className='sk-folding-cube'>
+              <div className='sk-cube1 sk-cube'></div>
+              <div className='sk-cube2 sk-cube'></div>
+              <div className='sk-cube4 sk-cube'></div>
+              <div className='sk-cube3 sk-cube'></div>
+            </div>
           </div>
         ) : (
           <div className='w-11/12 md:w-9/12 mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8'>

@@ -19,6 +19,13 @@ const AdminDashboard = () => {
   const shippedOrders = orders.filter((order) => order.status === "Shipped");
   const pendingOrders = orders.filter((order) => order.status === "Pending");
 
+  let totalIncome = 0;
+  {
+    orders.map(
+      (order) => (totalIncome = totalIncome + parseFloat(order.total_cost))
+    );
+  }
+
   return (
     <div className='py-16'>
       {loading ? (
@@ -36,7 +43,7 @@ const AdminDashboard = () => {
             <div className='w-full px-10 py-16 text-center bg-white shadow-md rounded-tl-lg rounded-tr-lg rounded-br-lg'>
               <h1>
                 <span className='font-bold'>Total Income(This Month):</span>{" "}
-                $1245
+                ${totalIncome}
               </h1>
             </div>
             <div className='w-full px-10 py-16 text-center bg-white shadow-md rounded-tl-lg rounded-tr-lg rounded-br-lg'>

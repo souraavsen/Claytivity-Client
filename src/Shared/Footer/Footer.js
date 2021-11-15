@@ -6,7 +6,11 @@ const Footer = () => {
   return (
     <div>
       <div className='md:my-auto h-20 w-20 rounded-full bg-gray-800 flex justify-center items-center z-30 brand_logo'>
-        <img className='mx-auto w-16 m-auto' src={logo} alt='' />
+        <img
+          className='mx-auto w-16 m-auto'
+          src='https://i.ibb.co/YbS1s3D/tier-animation-transparent.gif'
+          alt=''
+        />
       </div>
 
       <div className='footer_background footer_container'>
