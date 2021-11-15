@@ -16,7 +16,7 @@ const HomeProducts = () => {
   }, []);
   return (
     <div className='py-10'>
-      <h1 className='text-center text-4xl font-semibold pb-12 mt-20'>
+      <h1 className='text-center text-4xl font-semibold pb-12 mt-10'>
         Products
       </h1>
       {loading ? (
@@ -28,7 +28,7 @@ const HomeProducts = () => {
         </div>
       ) : (
         <div className='flex flex-col justify-center items-center'>
-          <div className='w-11/12 md:w-9/12 mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mb-10'>
+          <div className='w-11/12 md:w-9/12 mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-10'>
             {/* Here selecting first 6 item or all item */}
             {allproducts.slice(0, 6).map((product) => (
               <Product product={product}></Product>

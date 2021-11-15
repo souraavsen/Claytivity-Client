@@ -40,13 +40,13 @@ const AdminDashboard = () => {
           <div className='container grid grid-cols-1 md:grid-cols-3 gap-6 text-md'>
             <div className='w-full px-10 py-16 text-center bg-white shadow-md rounded-tl-lg rounded-tr-lg rounded-br-lg'>
               <h1>
-                <span className='font-bold'>Total Income(This Month):</span> $1245
+                <span className='font-bold'>Total Income(This Month):</span>{" "}
+                $1245
               </h1>
             </div>
             <div className='w-full px-10 py-16 text-center bg-white shadow-md rounded-tl-lg rounded-tr-lg rounded-br-lg'>
               <h1>
-                <span className='font-bold'>Total Order:</span>{" "}
-                {orders.length}
+                <span className='font-bold'>Total Order:</span> {orders.length}
               </h1>
             </div>
             <div className='w-full px-10 py-16 text-center bg-white shadow-md rounded-tl-lg rounded-tr-lg rounded-br-lg'>
@@ -64,17 +64,20 @@ const AdminDashboard = () => {
             <div>
               <div className='hidden md:flex flex-col md:flex-row justify-between items-center w-11/12 lg:w-full mx-auto px-10 py-1 rounded-bl-lg rounded-br-lg shadow-md mt-6 -mb-6 bg-green-500 bg-opacity-20'>
                 <div className='w-8/12 md:w-full flex flex-col md:flex-row flex-wrap justify-between items-center'>
-                  <h1 className='font-semibold text-center text-black'>
-                    Product Image
-                  </h1>
-                  <h1 className='font-semibold text-center text-black'>
-                    Product Name
-                  </h1>
+                  <div className=' font-semibold text-center text-black'>
+                    Image
+                  </div>
+                  <div className='font-semibold text-center text-black'>
+                    Product Name X Quantity
+                  </div>
                   <h2 className='font-semibold text-center truncate'>
                     Transection ID
                   </h2>
                   <h2 className='font-semibold text-center truncate'>
                     Order Date
+                  </h2>
+                  <h2 className='font-semibold text-center truncate'>
+                    Total Cost
                   </h2>
                   <h2 className='font-semibold text-center truncate'>
                     Order Status
@@ -93,23 +96,22 @@ const AdminDashboard = () => {
               <div key={order._id}>
                 <div className='flex flex-col md:flex-row justify-between items-center w-11/12 lg:w-full mx-auto px-10 py-4 rounded-md shadow-md my-10 bg-green-500 bg-opacity-20'>
                   <div className='md:w-full flex flex-col md:flex-row flex-wrap justify-between items-center'>
-                    <img
-                      className='w-10 h-10'
-                      src={order.product_img}
-                      alt=''
-                    />
+                    <img className='w-10 h-10' src={order.product_img} alt='' />
                     <Link
                       to={`/product-details/${order.product_id}`}
                       title='Click to view product'
                       className=' font-semibold text-center text-yellow-700 text-opacity-80 hover:text-yellow-700 hover:text-opacity-70'
                     >
-                      {order.product_name}
+                      {order.product_name} X {order.quantity}
                     </Link>
                     <h2 className=' font-semibold text-center truncate'>
                       {order.transiction}
                     </h2>
                     <h2 className=' font-semibold text-center truncate'>
                       {order.date}
+                    </h2>
+                    <h2 className=' font-semibold text-center truncate'>
+                      {order.total_cost}
                     </h2>
                   </div>
                   <div className='md:ml-24 flex justify-center items-center'>
@@ -135,10 +137,10 @@ const AdminDashboard = () => {
               <div className='hidden md:flex flex-col md:flex-row justify-between items-center w-11/12 lg:w-full mx-auto px-10 py-1 rounded-bl-lg rounded-br-lg shadow-md mt-6 -mb-6 bg-yellow-500 bg-opacity-20'>
                 <div className='w-8/12 md:w-full flex flex-col md:flex-row flex-wrap justify-between items-center'>
                   <div className=' font-semibold text-center text-black'>
-                    Product Image
+                    Image
                   </div>
                   <div className='font-semibold text-center text-black'>
-                    Product Name
+                    Product Name X Quantity
                   </div>
                   <h2 className='font-semibold text-center truncate'>
                     Transection ID
@@ -146,7 +148,9 @@ const AdminDashboard = () => {
                   <h2 className='font-semibold text-center truncate'>
                     Order Date
                   </h2>
-
+                  <h2 className='font-semibold text-center truncate'>
+                    Total Cost
+                  </h2>
                   <h2 className='font-semibold text-center truncate'>
                     Order Status
                   </h2>
@@ -170,23 +174,22 @@ const AdminDashboard = () => {
               <div key={order._id}>
                 <div className='flex flex-col md:flex-row justify-between items-center w-11/12 lg:w-full mx-auto px-10 py-4 rounded-md shadow-md my-10 bg-yellow-500 bg-opacity-20'>
                   <div className='md:w-full flex flex-col md:flex-row flex-wrap justify-between items-center'>
-                    <img
-                      className='w-10 h-10'
-                      src={order.product_img}
-                      alt=''
-                    />
+                    <img className='w-10 h-10' src={order.product_img} alt='' />
                     <Link
                       to={`/product-details/${order.product_id}`}
                       title='Click to view product'
                       className=' font-semibold text-center text-yellow-700 text-opacity-80 hover:text-yellow-700 hover:text-opacity-70'
                     >
-                      {order.product_name}
+                      {order.product_name} X {order.quantity}
                     </Link>
                     <h2 className=' font-semibold text-center truncate'>
                       {order.transiction}
                     </h2>
                     <h2 className=' font-semibold text-center truncate'>
                       {order.date}
+                    </h2>
+                    <h2 className=' font-semibold text-center truncate'>
+                      {order.total_cost}
                     </h2>
                   </div>
                   <div className='md:ml-24 flex justify-center items-center'>

@@ -14,7 +14,6 @@ const SingleProduct = ({ product }) => {
       <div className='mt-10 z-0 px-2 pb-4 bg-white border-2 flex flex-col items-center justify-center shadow-md rounded-bl-xl rounded-br-xl'>
         <div>
           <img
-            // src={plan.image ? plan.image : service}
             src={product.img}
             className='h-48 w-56 z-30 shadow-md mb-2 -mt-8 border-2 rounded-tl-lg rounded-tr-lg rounded-br-lg bg-white p-2'
             alt=''

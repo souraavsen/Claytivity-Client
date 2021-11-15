@@ -10,7 +10,6 @@ const Product = ({ product }) => {
       <div className='mt-10 z-0 px-2 pb-4 bg-white border-2 flex flex-col items-center justify-center shadow-md rounded-bl-xl rounded-br-xl'>
         <div>
           <img
-            // src={plan.image ? plan.image : service}
             src={product.img}
             className='h-48 w-56 z-30 shadow-md mb-2 -mt-8 border-2 rounded-tl-lg rounded-tr-lg rounded-br-lg bg-white p-2'
             alt=''
@@ -30,13 +29,11 @@ const Product = ({ product }) => {
           </div>
         </div>
         <h2 className='text-justify px-4 2xl:px-12 text-sm'>
-          {/* {plan.description.slice(0, 50)}... */}
           {product.description.slice(0, 60)}...
         </h2>
 
         <div>
           <p className='text-base py-1 flex'>
-            {/* <span className='mr-2'>Rating:</span> */}
             <ReactStars
               count={5}
               size={24}

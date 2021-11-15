@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import ReactStars from "react-rating-stars-component";
 import { useHistory, useParams } from "react-router-dom";
 import useAuth from "../../../Hooks/useAuth";
 import NavbarSection from "../../../Shared/Navbar/NavbarSection";
@@ -6,7 +7,7 @@ import NavbarSection from "../../../Shared/Navbar/NavbarSection";
 import OrderForm from "./OrderForm";
 
 const ProductDetails = () => {
-  const [planDetails, setPlanDetails] = useState({});
+  const [productDetails, setProductDetails] = useState({});
   const [loading, setLoading] = useState(true);
   const [modalShow, setModalShow] = useState(false);
   const [allBookings, setAllBookings] = useState([]);
@@ -20,7 +21,7 @@ const ProductDetails = () => {
     fetch(`http://127.0.0.1:5000/product-details/${productId.id}`)
       .then((res) => res.json())
       .then((data) => {
-        setPlanDetails(data);
+        setProductDetails(data);
         setLoading(false);
       });
   }, []);
@@ -44,41 +45,61 @@ const ProductDetails = () => {
               <img
                 className='rounded-md shadow-md md:w-4/12 mx-auto p-2'
                 src={
-                  planDetails.img
-                    ? planDetails.img
+                  productDetails.img
+                    ? productDetails.img
                     : "https://i.ibb.co/3zq9hJx/bl11-1024x1024.jpg"
                 }
                 alt=''
               />
-              <div className='w-11/12 md:w-5/12 mx-auto flex flex-col items-center md:ml-20'>
+              <div className='w-11/12 md:w-5/12 mx-auto flex flex-col items-start md:ml-20'>
                 <h1 className='text-4xl font-bold text-center pb-12 font_architect'>
-                  {planDetails.product_name}
+                  {productDetails.product_name}
                 </h1>
-                <h4 className='text-justify py-6'>{planDetails.description}</h4>
-                <div className='flex items-center pb-4'>
-                  <h4 className='pr-8 border-r-2 border-gray-400'>
-                    {planDetails.date}
-                  </h4>
-                </div>
+                <h4 className='text-justify text-lg py-6'>
+                  {productDetails.description}
+                </h4>
                 <h4>
-                  Price:{" "}
+                  <span className='font-semibold'>Price:</span>{" "}
                   <span className='text-lg text-yellow-900 font-semibold'>
-                    {planDetails.price}$
+                    {productDetails.price}$
                   </span>{" "}
                   only
                 </h4>
+
+                <div className='flex items-center'>
+                  <ReactStars
+                    classNames='mr-2 '
+                    count={5}
+                    size={24}
+                    value={productDetails.rating}
+                    edit={false}
+                    isHalf={true}
+                    emptyIcon={<i className='far fa-star'></i>}
+                    halfIcon={<i className='fa fa-star-half-alt'></i>}
+                    fullIcon={<i className='fa fa-star'></i>}
+                    activeColor='#ffd700'
+                  />
+                  <p>
+                    {productDetails.rating}({productDetails.rating})
+                  </p>
+                </div>
+                <img
+                  className='w-16 p-2 bg-yellow-700 bg-opacity-30 cursor-pointer mt-10 border shadow-md'
+                  src={productDetails.img}
+                  alt=''
+                />
+
                 {!admin && (
-                  <div className='flex justify-center items-center'>
+                  <div className='mx-auto'>
                     <button
-                      className='px-4 py-2 font-semibold rounded-tl-lg rounded-tr-lg rounded-br-lg hover:bg-opacity-40 mt-4 md:my-0 text-white bg-yellow-800 bg-opacity-50'
-                      //   onClick={() => setJoinflag(!joinflag)}
+                      className='px-4 py-2  font-semibold rounded-tl-lg rounded-tr-lg rounded-br-lg hover:bg-opacity-40 mt-4 md:my-0 text-white bg-yellow-800 bg-opacity-50'
                       onClick={() => setModalShow(true)}
                     >
                       Purchase
                     </button>
                     <OrderForm
                       show={modalShow}
-                      planDetails={planDetails}
+                      productDetails={productDetails}
                       onHide={() => setModalShow(false)}
                     />
                   </div>

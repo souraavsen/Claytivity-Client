@@ -7,11 +7,11 @@ const AddProduct = () => {
   const [errorf, setErrorf] = useState(false)
 
   const initial = {
-    name: "",
-    description: "",
+    product_name: "",
     img: "",
+    description: "",
     price: "",
-    ratting: "5",
+    rating: "4.5",
     total_ratings: "1",
   };
   const [productdata, setProductdata] = useState(initial);
@@ -70,9 +70,9 @@ const AddProduct = () => {
             <input
               className='block w-full bg-gray-200 text-gray-700 border rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white'
               type='text'
-              id='name'
-              value={productdata.name}
-              placeholder='plan name'
+              id='product_name'
+              value={productdata.product_name}
+              placeholder='product name'
               onChange={(e) => handleproductdata(e)}
             />
           </div>

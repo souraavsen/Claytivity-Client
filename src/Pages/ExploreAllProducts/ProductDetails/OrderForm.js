@@ -6,29 +6,23 @@ import { Card } from "react-bootstrap";
 import { Modal } from "react-bootstrap";
 
 const OrderForm = (props) => {
-  // const [loading, setLoading] = useState(true);
-  // const [allBookings, setAllBookings] = useState([]);
 
   const date = new Date();
 
   const history = useHistory();
   const { user } = useAuth();
 
-  // const usernameref = useRef();
-  // const useremailref = useRef();
-  // const product_nameref = useRef();
-  // const productIdref = useRef();
-
   const initial = {
     username: user.displayName,
     email: user.email,
-    product_id: props.planDetails._id,
-    product_name: props.planDetails.product_name,
-    product_img: props.planDetails.img,
-    product_price: props.planDetails.price,
+    product_id: props.productDetails._id,
+    product_name: props.productDetails.product_name,
+    product_img: props.productDetails.img,
+    product_price: props.productDetails.price,
     contact: "",
     transiction: "",
     quantity: "",
+    total_cost:"",
     address: "",
     date: date.toLocaleDateString(),
     status: "Pending",
@@ -44,7 +38,9 @@ const OrderForm = (props) => {
 
   const orderItem = (e) => {
     e.preventDefault();
-
+    orderdata.total_cost =
+      props.productDetails.price *
+      (orderdata?.quantity ? orderdata.quantity : 0);
     axios
       .post("http://127.0.0.1:5000/add-booking", orderdata)
       .then((res) => {
@@ -57,16 +53,6 @@ const OrderForm = (props) => {
         console.log(error);
       });
   };
-
-  // useEffect(() => {
-  //   fetch(`https://bloodcurdling-warlock-64846.herokuapp.com/all-bookings`)
-  //     .then((res) => res.json())
-  //     .then((data) => {
-  //       setAllBookings(data);
-  //       setLoading(false);
-  //     });
-  // }, []);
-
 
   return (
     <div>
@@ -86,19 +72,20 @@ const OrderForm = (props) => {
             <div className='container lg:flex flex-col justify-center items-center'>
               <div className='w-5/12 mx-auto mb-6'>
                 <Card className='bg-dark text-white'>
-                  <Card.Img src={props.planDetails.img} alt='Card image' />
-                  <Card.ImgOverlay className='bg-gray-800 bg-opacity-50 flex flex-col justify-center items-center'>
-                    <Card.Title className='font-semibold text-sm pb-4'>
-                      {props.planDetails.product_name}
-                    </Card.Title>
+                  <Card.Img src={props.productDetails.img} alt='Card image' />
+                  <Card.ImgOverlay className='bg-gray-800 bg-opacity-60 flex flex-col justify-center items-center'>
                     <Card.Text>{date.toLocaleDateString()}</Card.Text>
-                    <div className='flex justify-between pt-6 items-center'>
-                      <Card.Text className='text-white text-opacity-90 text-2xl font-bold'>
-                        ${props.planDetails.price}
+                    <Card.Title className='font-bold text-lg pb-4'>
+                      {props.productDetails.product_name}
+                    </Card.Title>
+                    <div className=''>
+                      <Card.Text className='text-yellow-400 text-2xl font-bold'>
+                        ${props.productDetails.price}
                       </Card.Text>
-
-                      <img src='' width='15%' alt='' />
                     </div>
+                      <Card.Text className='text-white text-md font-semibold pt-2'>
+                        Total: ${(props.productDetails.price)*(orderdata?.quantity ? orderdata.quantity : 0)}
+                      </Card.Text>
                     <img
                       className='w-24 left-3 top-3 absolute'
                       src='https://i.ibb.co/xHxN16t/images-removebg-preview.png'
@@ -153,7 +140,7 @@ const OrderForm = (props) => {
                     <input
                       id='product_id'
                       type='hidden'
-                      value={props.planDetails._id}
+                      value={props.productDetails._id}
                       // ref={productIdref}
                     />
 
@@ -168,7 +155,7 @@ const OrderForm = (props) => {
                         className='block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500'
                         type='text'
                         id='product_name'
-                        value={props.planDetails.product_name}
+                        value={props.productDetails.product_name}
                         readOnly
                         // ref={product_nameref}
                         placeholder='Package Name'

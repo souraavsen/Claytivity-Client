@@ -34,14 +34,6 @@
 
 @media only screen and (max-width: 750px) {
 
-    /* .slide2{
-    background-image: url(https://i.ibb.co/YPrTyPG/1.jpg);
-    /* background-image: url(https://i.ibb.co/r21j6T9/Plants-and-Pottery.webp); */
-    /* background-image: url(https://i.ibb.co/J21j9r9/apmenuitem-ihtml-5.jpg); */
-    /* background-repeat: no-repeat;
-    background-size:cover;
-}  */
-
 .slide1-content{
     clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
 }

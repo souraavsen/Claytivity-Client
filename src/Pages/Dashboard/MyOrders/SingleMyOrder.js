@@ -10,7 +10,11 @@ const SingleMyOrder = ({ order, deleteSingleOrder }) => {
             backgroundImage: `url(${order.product_img})`,
             backgroundSize: "cover",
           }}
-        ></div>
+        >
+          <h1 className='relative top-3/4 text-md font-bold text-white bg-yellow-700 bg-opacity-75 py-3'>
+            Total Cost: ${order.total_cost}
+          </h1>
+        </div>
         <div className='border-2 md:w-full md:h-full bg-white rounded-b lg:rounded-b-none lg:rounded-r p-4 flex flex-col justify-between leading-normal'>
           <div className='mb-2'>
             <div className='flex justify-between items-center'>
@@ -33,7 +37,7 @@ const SingleMyOrder = ({ order, deleteSingleOrder }) => {
               {order.contact}
             </p>
             <h2 className='font-semibold my-2'>
-              Status:{" "}
+              <span className='font-bold'>Status: </span>{" "}
               {order.status === "Pending" ? (
                 <span className='ml-1 px-3 py-0.5 bg-red-400 text-white rounded-full'>
                   {order.status}

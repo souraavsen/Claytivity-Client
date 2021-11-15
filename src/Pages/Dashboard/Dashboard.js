@@ -117,9 +117,9 @@ export default function Dashboard() {
           >
             <MenuIcon />
           </IconButton>
-          <Box className='mx-auto flex justify-center items-center '>
+          <Box className='ml-auto flex justify-center items-center py-4 md:pl-28'>
             <Typography
-              className='mr-4 text-black border-b-2 border-transparent hover:border-yellow-700'
+              className='text-black border-b-2 border-transparent hover:border-yellow-700'
               noWrap
               component='div'
             >
@@ -127,7 +127,7 @@ export default function Dashboard() {
             </Typography>
             <Link
               to='/'
-              className='ml-4 mr-4 hidden md:block text-black border-b-2 border-transparent hover:border-yellow-700'
+              className='mx-4 hidden md:block text-black border-b-2 border-transparent hover:border-yellow-700'
             >
               Home
             </Link>
