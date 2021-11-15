@@ -11,7 +11,7 @@ const AddAdmin = () => {
   console.log(email);
   const handleSubmit = (e) => {
     e.preventDefault();
-    const permission = window.confirm("Admin added successfully.");
+    const permission = window.confirm(`Are you sure ? Add ${email} as Admin ?`);
     if (permission) {
       axios
         .put("http://127.0.0.1:5000/users/admin", { email: email })

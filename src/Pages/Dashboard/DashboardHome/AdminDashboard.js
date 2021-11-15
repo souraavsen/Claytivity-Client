@@ -1,13 +1,10 @@
 import React, { useEffect, useState } from "react";
 import useAuth from "../../../Hooks/useAuth";
-import dashboardimg from "../../../Images/dashboard.jpg";
 import { Link } from "react-router-dom";
 
 const AdminDashboard = () => {
-  const { user, admin } = useAuth();
 
   const [orders, setOrders] = useState([]);
-  const [rerender, setRerender] = useState(false);
 
   const [loading, setLoading] = useState(true);
 
@@ -18,9 +15,8 @@ const AdminDashboard = () => {
         setOrders(data);
         setLoading(false);
       });
-  }, [rerender]);
+  }, []);
 
-//   const usersOrders = orders.filter((order) => order.email === user.email);
   const shippedOrders = orders.filter((order) => order.status === "Shipped");
   const pendingOrders = orders.filter((order) => order.status === "Pending");
 

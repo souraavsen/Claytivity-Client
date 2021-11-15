@@ -1,13 +1,11 @@
 import React, { useEffect, useState } from "react";
 import useAuth from "../../../Hooks/useAuth";
-import dashboardimg from "../../../Images/dashboard.jpg";
 import { Link } from "react-router-dom";
 
 const UserDashboard = () => {
-  const { user, admin } = useAuth();
+  const { user } = useAuth();
 
   const [orders, setOrders] = useState([]);
-  const [rerender, setRerender] = useState(false);
 
   const [loading, setLoading] = useState(true);
 
@@ -18,7 +16,7 @@ const UserDashboard = () => {
         setOrders(data);
         setLoading(false);
       });
-  }, [rerender]);
+  }, []);
 
   const usersOrders = orders.filter((order) => order.email === user.email);
   const shippedOrders = usersOrders.filter(
@@ -220,9 +218,6 @@ const UserDashboard = () => {
               </div>
             ))}
           </div>
-          {/* <div>
-            {admin && <img className='w-screen' src={dashboardimg} alt='' />}
-          </div> */}
         </>
       )}
     </div>
