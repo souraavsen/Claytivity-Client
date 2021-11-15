@@ -4,7 +4,7 @@ import { Alert } from "@mui/material";
 
 const AddProduct = () => {
   const [successf, setSuccessf] = useState(false);
-  const [errorf, setErrorf] = useState(false)
+  const [errorf, setErrorf] = useState(false);
 
   const initial = {
     product_name: "",
@@ -29,9 +29,11 @@ const AddProduct = () => {
     e.preventDefault();
 
     axios
-      .post("http://127.0.0.1:5000/add-product", productdata)
+      .post(
+        "https://boiling-badlands-82832.herokuapp.com/add-product",
+        productdata
+      )
       .then((res) => {
-        console.log(res);
         setProductdata(initial);
         setIfsaved(true);
         e.target.reset();
@@ -39,16 +41,14 @@ const AddProduct = () => {
         // history.push("/all-products");
       })
       .catch((error) => {
-        console.log(error);
         setErrorf(true);
-
       });
   };
 
   setTimeout(() => {
     if (successf || errorf) {
-      setSuccessf(false)
-      setErrorf(false)
+      setSuccessf(false);
+      setErrorf(false);
     }
   }, 3000);
 

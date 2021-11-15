@@ -6,7 +6,6 @@ import { Card } from "react-bootstrap";
 import { Modal } from "react-bootstrap";
 
 const OrderForm = (props) => {
-
   const date = new Date();
 
   const history = useHistory();
@@ -22,13 +21,12 @@ const OrderForm = (props) => {
     contact: "",
     transiction: "",
     quantity: "",
-    total_cost:"",
+    total_cost: "",
     address: "",
     date: date.toLocaleDateString(),
     status: "Pending",
   };
   const [orderdata, setOrderdata] = useState(initial);
-
 
   const handleorderdata = (e) => {
     const data = { ...orderdata };
@@ -42,16 +40,17 @@ const OrderForm = (props) => {
       props.productDetails.price *
       (orderdata?.quantity ? orderdata.quantity : 0);
     axios
-      .post("http://127.0.0.1:5000/add-booking", orderdata)
+      .post(
+        "https://boiling-badlands-82832.herokuapp.com/add-booking",
+        orderdata
+      )
       .then((res) => {
         e.target.reset();
         setOrderdata(initial);
         window.alert("Item Ordered Succefully.");
         history.push("/dashboard/myorders");
       })
-      .catch((error) => {
-        console.log(error);
-      });
+      .catch((error) => {});
   };
 
   return (
@@ -83,9 +82,11 @@ const OrderForm = (props) => {
                         ${props.productDetails.price}
                       </Card.Text>
                     </div>
-                      <Card.Text className='text-white text-md font-semibold pt-2'>
-                        Total: ${(props.productDetails.price)*(orderdata?.quantity ? orderdata.quantity : 0)}
-                      </Card.Text>
+                    <Card.Text className='text-white text-md font-semibold pt-2'>
+                      Total: $
+                      {props.productDetails.price *
+                        (orderdata?.quantity ? orderdata.quantity : 0)}
+                    </Card.Text>
                     <img
                       className='w-24 left-3 top-3 absolute'
                       src='https://i.ibb.co/xHxN16t/images-removebg-preview.png'

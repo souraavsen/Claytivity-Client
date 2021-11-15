@@ -110,7 +110,7 @@ const useFirebase = () => {
 
   const saveUser = (email, displayName, method) => {
     const user = { email, displayName };
-    fetch("http://127.0.0.1:5000/users", {
+    fetch("https://boiling-badlands-82832.herokuapp.com/users", {
       method: method,
       headers: {
         "content-type": "application/json",
@@ -121,7 +121,7 @@ const useFirebase = () => {
 
   useEffect(() => {
     let isAdmin = false;
-    fetch(`http://127.0.0.1:5000/users/${user.email}`)
+    fetch(`https://boiling-badlands-82832.herokuapp.com/users/${user.email}`)
       .then((res) => res.json())
       .then((data) => {
         if (data?.role === "admin") {

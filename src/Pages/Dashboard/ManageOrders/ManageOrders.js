@@ -9,7 +9,7 @@ const ManageOrders = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetch(`http://127.0.0.1:5000/all-orders`)
+    fetch(`https://boiling-badlands-82832.herokuapp.com/all-orders`)
       .then((res) => res.json())
       .then((data) => {
         setOrders(data);
@@ -20,7 +20,7 @@ const ManageOrders = () => {
   const deleteSingleOrder = (id) => {
     const permission = window.confirm("Are you sure want to remove ?");
     if (permission) {
-      fetch(`http://127.0.0.1:5000/remove-order/${id}`, {
+      fetch(`https://boiling-badlands-82832.herokuapp.com/remove-order/${id}`, {
         method: "DELETE",
       })
         .then((res) => res.json())
@@ -39,11 +39,10 @@ const ManageOrders = () => {
     if (permission) {
       axios
         .put(
-          `http://127.0.0.1:5000/order/update/${id}`,
+          `https://boiling-badlands-82832.herokuapp.com/order/update/${id}`,
           data
         )
         .then((res) => {
-          console.log(res);
           setRerender(!rerender);
         });
     }

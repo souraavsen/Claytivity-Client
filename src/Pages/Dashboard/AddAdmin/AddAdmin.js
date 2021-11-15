@@ -1,5 +1,5 @@
 import { Alert } from "@mui/material";
-import React, {  useState } from "react";
+import React, { useState } from "react";
 import adminimg from "../../../Images/addAdmin.gif";
 import axios from "axios";
 
@@ -8,20 +8,19 @@ const AddAdmin = () => {
   const [errorf, setErrorf] = useState(false);
   const [email, setEmail] = useState("");
 
-  console.log(email);
   const handleSubmit = (e) => {
     e.preventDefault();
     const permission = window.confirm(`Are you sure ? Add ${email} as Admin ?`);
     if (permission) {
       axios
-        .put("http://127.0.0.1:5000/users/admin", { email: email })
+        .put("https://boiling-badlands-82832.herokuapp.com/users/admin", {
+          email: email,
+        })
         .then((res) => {
-          console.log(res);
           e.target.reset();
           setSuccessf(true);
         })
         .catch((error) => {
-          console.log(error);
           setErrorf(true);
         });
     }

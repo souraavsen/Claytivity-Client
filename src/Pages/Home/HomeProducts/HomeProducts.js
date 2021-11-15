@@ -7,7 +7,7 @@ const HomeProducts = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetch(`http://127.0.0.1:5000/all-products`)
+    fetch(`https://boiling-badlands-82832.herokuapp.com/all-products`)
       .then((res) => res.json())
       .then((data) => {
         setAllproducts(data);
@@ -31,7 +31,7 @@ const HomeProducts = () => {
           <div className='w-11/12 md:w-9/12 mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-10'>
             {/* Here selecting first 6 item or all item */}
             {allproducts.slice(0, 6).map((product) => (
-              <Product product={product}></Product>
+              <Product key={product._id} product={product}></Product>
             ))}
           </div>
           <Link

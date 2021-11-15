@@ -34,22 +34,18 @@ const AddReview = () => {
     ratting: rating,
   };
 
-  console.log(data);
-
   const handleSubmit = (e) => {
     e.preventDefault();
     const permission = window.confirm("Review added successfully.");
     if (permission) {
       axios
-        .post("http://127.0.0.1:5000/add-review", data)
+        .post("https://boiling-badlands-82832.herokuapp.com/add-review", data)
         .then((res) => {
-          console.log(res);
           setReviewdata(initial);
           e.target.reset();
-          setSuccessf(true)
+          setSuccessf(true);
         })
         .catch((error) => {
-          console.log(error);
           setErrorf(true);
         });
     }
@@ -174,7 +170,7 @@ const AddReview = () => {
               </div>
               {successf && (
                 <Alert
-                className='mt-4'
+                  className='mt-4'
                   severity='success'
                   onClose={() => {
                     setSuccessf(false);
@@ -185,7 +181,7 @@ const AddReview = () => {
               )}
               {errorf && (
                 <Alert
-                className='mt-4'
+                  className='mt-4'
                   severity='error'
                   onClose={() => {
                     setErrorf(false);

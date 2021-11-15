@@ -13,12 +13,13 @@ const ProductDetails = () => {
   const [allBookings, setAllBookings] = useState([]);
 
   const productId = useParams();
-  console.log(productId.productId);
   const history = useHistory();
   const { admin } = useAuth();
 
   useEffect(() => {
-    fetch(`http://127.0.0.1:5000/product-details/${productId.id}`)
+    fetch(
+      `https://boiling-badlands-82832.herokuapp.com/product-details/${productId.id}`
+    )
       .then((res) => res.json())
       .then((data) => {
         setProductDetails(data);

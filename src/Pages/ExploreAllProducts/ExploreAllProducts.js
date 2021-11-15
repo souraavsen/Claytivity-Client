@@ -1,20 +1,19 @@
 import { React, useState, useEffect } from "react";
 import SingleProduct from "./SingleProduct";
-import NavbarSection from '../../Shared/Navbar/NavbarSection'
+import NavbarSection from "../../Shared/Navbar/NavbarSection";
 
 const ExploreAllProducts = () => {
-    const [allproducts, setAllproducts] = useState([]);
-    const [loading, setLoading] = useState(true);
+  const [allproducts, setAllproducts] = useState([]);
+  const [loading, setLoading] = useState(true);
 
-
-    useEffect(() => {
-      fetch(`http://127.0.0.1:5000/all-products`)
-        .then((res) => res.json())
-        .then((data) => {
-          setAllproducts(data);
-          setLoading(false);
-        });
-    }, []);
+  useEffect(() => {
+    fetch(`https://boiling-badlands-82832.herokuapp.com/all-products`)
+      .then((res) => res.json())
+      .then((data) => {
+        setAllproducts(data);
+        setLoading(false);
+      });
+  }, []);
   return (
     <>
       <NavbarSection></NavbarSection>

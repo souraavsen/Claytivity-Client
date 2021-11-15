@@ -1,13 +1,13 @@
-import {React, useState, useEffect} from "react";
+import { React, useState, useEffect } from "react";
 import ManageProduct from "./ManageProduct";
 
 const ManageAllProducts = () => {
   const [allproducts, setAllproducts] = useState([]);
   const [loading, setLoading] = useState(true);
   const [rerender, setRerender] = useState(false);
-  
+
   useEffect(() => {
-    fetch(`http://127.0.0.1:5000/all-products`)
+    fetch(`https://boiling-badlands-82832.herokuapp.com/all-products`)
       .then((res) => res.json())
       .then((data) => {
         setAllproducts(data);
@@ -18,9 +18,12 @@ const ManageAllProducts = () => {
   const deleteProduct = (id) => {
     const permission = window.confirm("Are you sure want to remove ?");
     if (permission) {
-      fetch(`http://127.0.0.1:5000/delete-product/${id}`, {
-        method: "DELETE",
-      })
+      fetch(
+        `https://boiling-badlands-82832.herokuapp.com/delete-product/${id}`,
+        {
+          method: "DELETE",
+        }
+      )
         .then((res) => res.json())
         .then((data) => {
           setRerender(!rerender);
@@ -28,7 +31,9 @@ const ManageAllProducts = () => {
     }
   };
   const editProduct = (id) => {
-    const permission = window.confirm("Editing product functionality is comming soon.");
+    const permission = window.confirm(
+      "Editing product functionality is comming soon."
+    );
   };
 
   return (

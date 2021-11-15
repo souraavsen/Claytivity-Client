@@ -3,13 +3,12 @@ import useAuth from "../../../Hooks/useAuth";
 import { Link } from "react-router-dom";
 
 const AdminDashboard = () => {
-
   const [orders, setOrders] = useState([]);
 
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetch(`http://127.0.0.1:5000/all-orders`)
+    fetch(`https://boiling-badlands-82832.herokuapp.com/all-orders`)
       .then((res) => res.json())
       .then((data) => {
         setOrders(data);
