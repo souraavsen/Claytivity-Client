@@ -137,7 +137,10 @@ const useFirebase = () => {
       .then(() => {
         setUser({});
       })
-      .finally(() => setLoading(false));
+      .finally(() => {
+        setLoading(false);
+        setError("");
+      });
   };
 
   // returning all essentials

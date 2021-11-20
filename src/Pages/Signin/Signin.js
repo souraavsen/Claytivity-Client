@@ -80,11 +80,7 @@ const Signin = () => {
                   placeholder='password'
                   onChange={handlePassword}
                 />
-                {/* {error && (
-                <p className='text-xs italic text-center px-4 py-1 bg-red-400 bg-opacity-80 rounded-md text-white absolute mx-auto'>
-                  {error}
-                </p>
-              )} */}
+              
                 <p className='text-xs italic text-red-500 text-center'>
                   {error}
                 </p>

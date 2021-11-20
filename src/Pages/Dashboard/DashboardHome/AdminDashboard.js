@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import useAuth from "../../../Hooks/useAuth";
 import { Link } from "react-router-dom";
 import { Chart } from "react-google-charts";
-import './AdminDashboard.css'
+import "./AdminDashboard.css";
 
 const AdminDashboard = () => {
   const [orders, setOrders] = useState([]);
@@ -114,6 +114,7 @@ const AdminDashboard = () => {
                 loader={<div>Income Chart</div>}
                 data={data}
                 options={{
+                  title: "Income Chart",
                   hAxis: {
                     title: "Date",
                   },
