@@ -71,7 +71,7 @@ const AdminDashboard = () => {
       ) : (
         <>
           <div className='w-10/12 md:w-full mx-auto grid grid-cols-1 md:grid-cols-3 gap-6 text-md'>
-            <div className='px-10 py-16 text-center bg-white shadow-md rounded-tl-lg rounded-tr-lg rounded-br-lg'>
+            <div className='px-10 py-16 mx-auto text-center bg-white shadow-md rounded-tl-lg rounded-tr-lg rounded-br-lg'>
               <h1>
                 <span className='font-bold'>Total Income(This Month):</span> $
                 {totalIncome}
