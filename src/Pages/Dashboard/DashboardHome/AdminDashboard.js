@@ -55,7 +55,7 @@ const AdminDashboard = () => {
     };
   });
   const mappedToArray = result.map((d) => Array.from(Object.values(d)));
-  let data = [["0", "1"], ...mappedToArray];
+  let data = [["Date", "Income Graph"], ...mappedToArray];
 
   return (
     <div className='py-16'>
@@ -108,6 +108,8 @@ const AdminDashboard = () => {
                 }}
                 rootProps={{ "data-testid": "3" }}
               />
+                
+                {/* Income Graph */}
               <Chart
                 className='graph_container mx-auto w-full mt-4'
                 chartType='LineChart'
