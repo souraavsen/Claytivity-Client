@@ -110,6 +110,16 @@ const AddProduct = () => {
               placeholder='image link'
               onChange={(e) => handleproductdata(e)}
             />
+            {/* <input
+              className='block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500'
+              type='file'
+              id='img'
+              required
+              accept="image/image.jpg"
+              value={productdata.img}
+              onChange={(e) => handleproductdata(e)}
+            /> */}
+            
           </div>
 
           <div className='w-11/12 lg:w-full mx-auto md:w-1/2 px-3 pb-3'>

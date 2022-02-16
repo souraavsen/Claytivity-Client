@@ -18,15 +18,16 @@ const OrderForm = (props) => {
     product_name: props.productDetails.product_name,
     product_img: props.productDetails.img,
     product_price: props.productDetails.price,
-    contact: "",
-    transiction: "",
+    // contact: "",
+    // transiction: "",
     quantity: "",
     total_cost: "",
-    address: "",
+    // address: "",
     date: date.toLocaleDateString(),
     status: "Pending",
   };
   const [orderdata, setOrderdata] = useState(initial);
+  const [tiggered, setTiggered] = useState("");
 
   const handleorderdata = (e) => {
     const data = { ...orderdata };
@@ -40,15 +41,17 @@ const OrderForm = (props) => {
       props.productDetails.price *
       (orderdata?.quantity ? orderdata.quantity : 0);
     axios
-      .post(
-        "https://boiling-badlands-82832.herokuapp.com/add-booking",
-        orderdata
-      )
+      .post("http://127.0.0.1:5000/add-order", orderdata)
       .then((res) => {
         e.target.reset();
         setOrderdata(initial);
         window.alert("Item Ordered Succefully.");
-        history.push("/dashboard/myorders");
+        console.log(res?.data?.insertedId);
+        if (tiggered) {
+          history.push(`/dashboard/pay/${res.data.insertedId}`);
+        } else {
+          history.push("/dashboard/all-products");
+        }
       })
       .catch((error) => {});
   };
@@ -159,7 +162,7 @@ const OrderForm = (props) => {
                         onChange={(e) => handleorderdata(e)}
                       />
                     </div>
-                    <div className='w-full px-3 mb-6 pt-3 md:mb-0'>
+                    {/* <div className='w-full px-3 mb-6 pt-3 md:mb-0'>
                       <label
                         className='block tracking-wide text-gray-700 text-xs font-bold mb-2'
                         for='grid-last-name'
@@ -175,9 +178,9 @@ const OrderForm = (props) => {
                         placeholder='01XXXXXXXXXXX'
                         onChange={(e) => handleorderdata(e)}
                       />
-                    </div>
+                    </div> */}
                   </div>
-                  <div className='w-full px-3 md:mx-6 mb-6 pt-3 md:mb-0'>
+                  {/* <div className='w-full px-3 md:mx-6 mb-6 pt-3 md:mb-0'>
                     <label
                       className='block tracking-wide text-gray-700 text-xs font-bold mb-2'
                       for='grid-last-name'
@@ -193,7 +196,7 @@ const OrderForm = (props) => {
                       placeholder='XXXXXXXXXXXXXXXXXXXX'
                       onChange={(e) => handleorderdata(e)}
                     />
-                  </div>
+                  </div> */}
                   <div className='w-full px-3 md:mx-6 mb-6 pt-3 md:mb-0'>
                     <label
                       className='block tracking-wide text-gray-700 text-xs font-bold mb-2'
@@ -211,7 +214,7 @@ const OrderForm = (props) => {
                       onChange={(e) => handleorderdata(e)}
                     />
                   </div>
-                  <div className='w-full px-3 md:mx-6 mb-6 pt-3 md:mb-0'>
+                  {/* <div className='w-full px-3 md:mx-6 mb-6 pt-3 md:mb-0'>
                     <label
                       className='block tracking-wide text-gray-700 text-xs font-bold mb-2'
                       for='grid-last-name'
@@ -227,17 +230,18 @@ const OrderForm = (props) => {
                       required
                       onChange={(e) => handleorderdata(e)}
                     />
-                  </div>
+                  </div> */}
                   <input id='status' type='hidden' value='Painding' />
 
                   <div className='w-full flex items-center px-3 md:mx-6 mb-6 pt-3 md:mb-0'>
                     <input
                       className='block bg-gray-200 text-gray-700 border border-gray-200 focus:outline-none focus:bg-white focus:border-gray-500'
                       type='checkbox'
+                      id='conditions'
                     />
                     <label
                       className='block tracking-wide text-gray-700 text-base font-bold ml-4'
-                      for='grid-last-name'
+                      htmlFor='conditions'
                     >
                       I agree to the Terms and Conditions
                     </label>
@@ -247,8 +251,16 @@ const OrderForm = (props) => {
                   <button
                     className='px-4 mx-auto mt-4 py-2 font-semibold rounded-tl-lg rounded-tr-lg rounded-br-lg hover:bg-opacity-40 md:my-0 text-white bg-yellow-800 bg-opacity-60'
                     type='submit'
+                    onClick={() => setTiggered(false)}
                   >
-                    Place Order
+                    Add More
+                  </button>
+                  <button
+                    className='px-4 mx-auto mt-4 py-2 font-semibold rounded-tl-lg rounded-tr-lg rounded-br-lg hover:bg-opacity-40 md:my-0 text-white bg-yellow-800 bg-opacity-60'
+                    type='submit'
+                    onClick={() => setTiggered(true)}
+                  >
+                    Pay
                   </button>
                 </div>
               </form>

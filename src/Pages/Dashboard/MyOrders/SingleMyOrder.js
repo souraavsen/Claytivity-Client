@@ -53,13 +53,20 @@ const SingleMyOrder = ({ order, deleteSingleOrder }) => {
           <div className='flex items-center'>
             <div className='mx-auto flex justify-center items-center'>
               {order.status === "Pending" ? (
-                <button
-                  className='px-4 mr-2 font-semibold py-2 rounded-tl-lg rounded-tr-lg rounded-br-lg hover:bg-opacity-90 my-2 md:my-0 bg-red-500 text-white'
-                  type='submit'
-                  onClick={() => deleteSingleOrder(order._id)}
-                >
-                  <i className='far fa-trash-alt'></i>
-                </button>
+                <div className=''>
+                  <button
+                    className='px-3 font-semibold py-1 rounded-tl-lg rounded-tr-lg rounded-br-lg hover:bg-opacity-60 my-2 md:my-0 bg-yellow-700 bg-opacity-70 text-white'
+                  >
+                    Pay
+                  </button>
+                  <button
+                    className='px-3 ml-2 font-semibold py-1 rounded-tl-lg rounded-tr-lg rounded-br-lg hover:bg-opacity-70 my-2 md:my-0 bg-red-500 bg-opacity-80 text-white'
+                    type='submit'
+                    onClick={() => deleteSingleOrder(order._id)}
+                  >
+                    <i className='far fa-trash-alt text-xs'></i>
+                  </button>
+                </div>
               ) : (
                 <div className='px-4 mr-2 font-semibold text-lg py-2 rounded-tl-lg rounded-tr-lg rounded-br-lg my-2 md:my-0 text-green-800'>
                   Thanks for really on us

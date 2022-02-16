@@ -22,7 +22,6 @@ const NavbarSection = () => {
         className='bg-gray-50 bg-opacity-70 backdrop-filter backdrop-blur-md'
         expand='lg'
       >
-
         <Container>
           <Navbar.Brand className='mx-auto flex justify-center items-center'>
             <Link
@@ -39,7 +38,6 @@ const NavbarSection = () => {
             id='basic-navbar-nav'
           >
             <Nav className='mx-auto flex flex-col md:flex-row justify-center items-start'>
-              
               {user?.email && (
                 <Nav.Link>
                   <Link
@@ -72,7 +70,7 @@ const NavbarSection = () => {
               {user?.email && (
                 <>
                   <Nav.Link className='flex flex-col md:flex-row justify-center md:justify-between items-center mr-2'>
-                    <div class='dropdown'>
+                    <div className='dropdown'>
                       <img
                         title={user?.displayName}
                         className='rounded-full mr-2'
@@ -86,20 +84,20 @@ const NavbarSection = () => {
                         aria-expanded='false'
                       />
                       <div
-                        class='dropdown-menu dropdown-menu-right py-2 mt-2 shadow-sm bg-gray-50 bg-opacity-80 backdrop-filter backdrop-blur-md'
+                        className='dropdown-menu dropdown-menu-right py-2 mt-2 shadow-sm bg-gray-50 bg-opacity-80 backdrop-filter backdrop-blur-md'
                         aria-labelledby='dropdownMenu2'
                       >
                         <button
-                          class='dropdown-item font-extrabold'
+                          className='dropdown-item font-extrabold'
                           type='button'
                         >
                           {user?.displayName}
                         </button>
-                        <button class='dropdown-item' type='button'>
+                        <button className='dropdown-item' type='button'>
                           Settings
                         </button>
                         <hr></hr>
-                        <button class='dropdown-item' type='button'>
+                        <button className='dropdown-item' type='button'>
                           Help
                         </button>
                       </div>

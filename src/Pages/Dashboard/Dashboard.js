@@ -27,6 +27,7 @@ import AddReview from "./AddReview/AddReview";
 import ManageOrders from "./ManageOrders/ManageOrders";
 import ManageProducts from "./ManageProducts/ManageAllProducts";
 import Payments from "./Payments/Payments";
+import Pay from "./Payments/Pay";
 import MyOrders from "./MyOrders/MyOrders";
 import logo from "../../Images/caltivity-logo.png";
 import useralogo from "../../Images/userlogo.png";
@@ -244,7 +245,7 @@ export default function Dashboard() {
             <Link className='text-black hover:text-black' to={`${url}`}>
               <ListItem button>
                 <ListItemIcon>
-                  <i class='fas fa-chart-line'></i>
+                  <i className='fas fa-chart-line'></i>
                 </ListItemIcon>
                 Dashboard
               </ListItem>
@@ -307,7 +308,7 @@ export default function Dashboard() {
             <Link className='text-black hover:text-black' to={`${url}`}>
               <ListItem button>
                 <ListItemIcon>
-                  <i class='fas fa-chart-line'></i>
+                  <i className='fas fa-chart-line'></i>
                 </ListItemIcon>
                 Dashboard
               </ListItem>
@@ -355,7 +356,7 @@ export default function Dashboard() {
         <Link className='text-black hover:text-black block md:hidden' to='/'>
           <ListItem button>
             <ListItemIcon>
-              <i class='fas fa-home'></i>
+              <i className='fas fa-home'></i>
             </ListItemIcon>
             Home
           </ListItem>
@@ -414,8 +415,11 @@ export default function Dashboard() {
             <ManageProducts></ManageProducts>
           </Route>
 
-          <Route path={`${path}/payments`}>
+          <Route exact path={`${path}/payments`}>
             <Payments></Payments>
+          </Route>
+          <Route path={`${path}/pay/:id`}>
+            <Pay></Pay>
           </Route>
 
           <Route path={`${path}/myorders`}>

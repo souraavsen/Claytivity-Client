@@ -3,8 +3,8 @@ import ReactStars from "react-rating-stars-component";
 import { useHistory, useParams } from "react-router-dom";
 import useAuth from "../../../Hooks/useAuth";
 import NavbarSection from "../../../Shared/Navbar/NavbarSection";
-
 import OrderForm from "./OrderForm";
+
 
 const ProductDetails = () => {
   const [productDetails, setProductDetails] = useState({});
