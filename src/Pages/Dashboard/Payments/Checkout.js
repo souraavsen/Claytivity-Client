@@ -88,11 +88,6 @@ const Checkout = ({ orderDetails }) => {
         last4: paymentMethod.card.last4,
         transaction: clientSecret.split("_secret")[0],
       };
-      // axios
-      //   .put(`http://127.0.0.1:5000/order-payment/update/${id}`, payment)
-      //   .then((data) => console.log(data))
-      //   .catch((error) => console.log(error));
-
       fetch(`http://127.0.0.1:5000/order-payment/update/${id}`, {
         method: "PUT",
         headers: {

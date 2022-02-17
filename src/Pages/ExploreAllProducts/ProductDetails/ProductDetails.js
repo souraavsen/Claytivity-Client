@@ -44,7 +44,7 @@ const ProductDetails = () => {
           <>
             <div className='container lg:flex md:flex justify-between px-8 py-12 bg-white rounded-tl-lg rounded-tr-lg rounded-br-lg'>
               <img
-                className='rounded-md shadow-md md:w-4/12 mx-auto p-2'
+                className='rounded-md shadow-md md:w-5/12 mx-auto p-2'
                 src={
                   details.img
                     ? details.img
@@ -56,7 +56,7 @@ const ProductDetails = () => {
                 <h1 className='text-4xl font-bold text-center pb-12 font_architect'>
                   {details.product_name}
                 </h1>
-                <h4 className='text-justify text-lg py-6'>
+                <h4 className='text-justify text-base py-6'>
                   {details.description}
                 </h4>
                 <h4>
