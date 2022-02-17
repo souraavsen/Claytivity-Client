@@ -7,7 +7,7 @@ import OrderForm from "./OrderForm";
 
 
 const ProductDetails = () => {
-  const [productDetails, setProductDetails] = useState({});
+  const [details, setDetails] = useState({});
   const [loading, setLoading] = useState(true);
   const [modalShow, setModalShow] = useState(false);
   const [allBookings, setAllBookings] = useState([]);
@@ -22,7 +22,7 @@ const ProductDetails = () => {
     )
       .then((res) => res.json())
       .then((data) => {
-        setProductDetails(data);
+        setDetails(data);
         setLoading(false);
       });
   }, []);
@@ -46,23 +46,23 @@ const ProductDetails = () => {
               <img
                 className='rounded-md shadow-md md:w-4/12 mx-auto p-2'
                 src={
-                  productDetails.img
-                    ? productDetails.img
+                  details.img
+                    ? details.img
                     : "https://i.ibb.co/3zq9hJx/bl11-1024x1024.jpg"
                 }
                 alt=''
               />
               <div className='w-11/12 md:w-5/12 mx-auto flex flex-col items-start md:ml-20'>
                 <h1 className='text-4xl font-bold text-center pb-12 font_architect'>
-                  {productDetails.product_name}
+                  {details.product_name}
                 </h1>
                 <h4 className='text-justify text-lg py-6'>
-                  {productDetails.description}
+                  {details.description}
                 </h4>
                 <h4>
                   <span className='font-semibold'>Price:</span>{" "}
                   <span className='text-lg text-yellow-900 font-semibold'>
-                    {productDetails.price}$
+                    {details.price}$
                   </span>{" "}
                   only
                 </h4>
@@ -72,7 +72,7 @@ const ProductDetails = () => {
                     classNames='mr-2 '
                     count={5}
                     size={24}
-                    value={productDetails.rating}
+                    value={details.rating}
                     edit={false}
                     isHalf={true}
                     emptyIcon={<i className='far fa-star'></i>}
@@ -81,12 +81,12 @@ const ProductDetails = () => {
                     activeColor='#ffd700'
                   />
                   <p>
-                    {productDetails.rating}({productDetails.rating})
+                    {details.rating}({details.rating})
                   </p>
                 </div>
                 <img
                   className='w-16 p-2 bg-yellow-700 bg-opacity-30 cursor-pointer mt-10 border shadow-md'
-                  src={productDetails.img}
+                  src={details.img}
                   alt=''
                 />
 
@@ -100,7 +100,7 @@ const ProductDetails = () => {
                     </button>
                     <OrderForm
                       show={modalShow}
-                      productDetails={productDetails}
+                      details={details}
                       onHide={() => setModalShow(false)}
                     />
                   </div>

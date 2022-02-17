@@ -29,8 +29,8 @@ import ManageProducts from "./ManageProducts/ManageAllProducts";
 import Payments from "./Payments/Payments";
 import Pay from "./Payments/Pay";
 import MyOrders from "./MyOrders/MyOrders";
-import logo from "../../Images/caltivity-logo.png";
-import useralogo from "../../Images/userlogo.png";
+import logo from "../../assets/Images/caltivity-logo.png";
+import useralogo from "../../assets/Images/userlogo.png";
 import DashboardNotFound from "../NotFound/DashboardNotFound";
 
 const drawerWidth = 220;

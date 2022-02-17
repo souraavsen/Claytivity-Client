@@ -3,11 +3,10 @@ import { Link } from "react-router-dom";
 // for displaying rating in star
 import ReactStars from "react-rating-stars-component";
 import "./ExploreAllProducts.css";
-import useAuth from '../../Hooks/useAuth'
+import useAuth from "../../Hooks/useAuth";
 
 const SingleProduct = ({ product }) => {
-
-  const {admin} = useAuth()
+  const { admin } = useAuth();
 
   return (
     <div className='mx-auto'>
@@ -42,7 +41,7 @@ const SingleProduct = ({ product }) => {
             <ReactStars
               count={5}
               size={24}
-              value={product.rating}
+              value={parseFloat(product.rating)}
               edit={false}
               isHalf={true}
               emptyIcon={<i className='far fa-star'></i>}

@@ -14,10 +14,10 @@ const OrderForm = (props) => {
   const initial = {
     username: user.displayName,
     email: user.email,
-    product_id: props.productDetails._id,
-    product_name: props.productDetails.product_name,
-    product_img: props.productDetails.img,
-    product_price: props.productDetails.price,
+    product_id: props.details._id,
+    product_name: props.details.product_name,
+    product_img: props.details.img,
+    product_price: props.details.price,
     // contact: "",
     // transiction: "",
     quantity: "",
@@ -25,6 +25,7 @@ const OrderForm = (props) => {
     // address: "",
     date: date.toLocaleDateString(),
     status: "Pending",
+    paid: false,
   };
   const [orderdata, setOrderdata] = useState(initial);
   const [tiggered, setTiggered] = useState("");
@@ -38,7 +39,7 @@ const OrderForm = (props) => {
   const orderItem = (e) => {
     e.preventDefault();
     orderdata.total_cost =
-      props.productDetails.price *
+      props.details.price *
       (orderdata?.quantity ? orderdata.quantity : 0);
     axios
       .post("http://127.0.0.1:5000/add-order", orderdata)
@@ -74,20 +75,20 @@ const OrderForm = (props) => {
             <div className='container lg:flex flex-col justify-center items-center'>
               <div className='md:w-5/12 mx-auto mb-6'>
                 <Card className='bg-dark text-white'>
-                  <Card.Img src={props.productDetails.img} alt='Card image' />
+                  <Card.Img src={props.details.img} alt='Card image' />
                   <Card.ImgOverlay className='bg-gray-800 bg-opacity-60 flex flex-col justify-center items-center'>
                     <Card.Text>{date.toLocaleDateString()}</Card.Text>
                     <Card.Title className='font-bold text-lg pb-4'>
-                      {props.productDetails.product_name}
+                      {props.details.product_name}
                     </Card.Title>
                     <div className=''>
                       <Card.Text className='text-yellow-400 text-2xl font-bold'>
-                        ${props.productDetails.price}
+                        ${props.details.price}
                       </Card.Text>
                     </div>
                     <Card.Text className='text-white text-md font-semibold pt-2'>
                       Total: $
-                      {props.productDetails.price *
+                      {props.details.price *
                         (orderdata?.quantity ? orderdata.quantity : 0)}
                     </Card.Text>
                     <img
@@ -142,7 +143,7 @@ const OrderForm = (props) => {
                     <input
                       id='product_id'
                       type='hidden'
-                      value={props.productDetails._id}
+                      value={props.details._id}
                     />
 
                     <div className='w-full px-3 mb-6 pt-3 md:mb-0'>
@@ -156,7 +157,7 @@ const OrderForm = (props) => {
                         className='block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500'
                         type='text'
                         id='product_name'
-                        value={props.productDetails.product_name}
+                        value={props.details.product_name}
                         readOnly
                         placeholder='Package Name'
                         onChange={(e) => handleorderdata(e)}

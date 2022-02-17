@@ -1,6 +1,6 @@
 import React from "react";
 import "./Footer.css";
-import logo from "../../Images/caltivity-logo.png";
+import logo from "../../assets/Images/caltivity-logo.png";
 
 const Footer = () => {
   return (

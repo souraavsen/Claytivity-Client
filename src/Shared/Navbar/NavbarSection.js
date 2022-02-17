@@ -1,8 +1,8 @@
 import React from "react";
 import { Container, Nav, Navbar } from "react-bootstrap";
 import { Link } from "react-router-dom";
-import useralogo from "../../Images/userlogo.png";
-import logo from "../../Images/caltivity-logo.png";
+import useralogo from "../../assets/Images/userlogo.png";
+import logo from "../../assets/Images/caltivity-logo.png";
 import useAuth from "../../Hooks/useAuth";
 
 const NavbarSection = () => {
@@ -41,7 +41,7 @@ const NavbarSection = () => {
               {user?.email && (
                 <Nav.Link>
                   <Link
-                    activeS
+                    
                     to='/dashboard'
                     className='mr-4 text-black border-b-2 border-transparent hover:border-yellow-700'
                   >

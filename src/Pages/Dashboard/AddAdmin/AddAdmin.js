@@ -1,6 +1,6 @@
 import { Alert } from "@mui/material";
 import React, { useState } from "react";
-import adminimg from "../../../Images/addAdmin.gif";
+import adminimg from "../../../assets/Images/addAdmin.gif";
 import axios from "axios";
 
 const AddAdmin = () => {

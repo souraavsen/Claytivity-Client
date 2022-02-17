@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import footerimg from "../../Images/404.gif";
+import footerimg from "../../assets/Images/404.gif";
 
 const DashboardNotFound = () => {
   return (

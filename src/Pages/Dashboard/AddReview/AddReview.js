@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import useAuth from "../../../Hooks/useAuth";
-import reviewimg from "../../../Images/review.gif";
+import reviewimg from "../../../assets/Images/review.gif";
 import ReactStars from "react-stars";
 import axios from "axios";
-import userlogo from "../../../Images/userlogo.png";
+import userlogo from "../../../assets/Images/userlogo.png";
 import { useHistory } from "react-router-dom";
 import { Alert } from "@mui/material";
 

@@ -35,7 +35,7 @@ const Pay = () => {
           <Checkout orderDetails={orderDetails}/>
         </Elements>}
         <img
-          className='pt-4 mx-auto'
+          className='w-1/2 pb-4 mx-auto'
           src='https://web.programming-hero.com/static/media/ssl-commerce.1d268dce.png'
           alt=''
         />
