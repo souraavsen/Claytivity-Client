@@ -23,7 +23,7 @@ const SingleReview = ({ review }) => {
                 width='28px'
                 height='24.834px'
                 viewBox='0 0 28 24.834'
-                enable-background='new 0 0 28 24.834'
+                enableBackground='new 0 0 28 24.834'
               >
                 <g>
                   <path

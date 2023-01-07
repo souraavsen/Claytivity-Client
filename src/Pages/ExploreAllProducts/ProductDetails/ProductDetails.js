@@ -5,7 +5,6 @@ import useAuth from "../../../Hooks/useAuth";
 import NavbarSection from "../../../Shared/Navbar/NavbarSection";
 import OrderForm from "./OrderForm";
 
-
 const ProductDetails = () => {
   const [details, setDetails] = useState({});
   const [loading, setLoading] = useState(true);
@@ -18,7 +17,7 @@ const ProductDetails = () => {
 
   useEffect(() => {
     fetch(
-      `https://boiling-badlands-82832.herokuapp.com/product-details/${productId.id}`
+      `https://claytivity-server.onrender.com/product-details/${productId.id}`
     )
       .then((res) => res.json())
       .then((data) => {

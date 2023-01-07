@@ -4,18 +4,19 @@ import SingleReview from "./SingleReview";
 
 const Reviews = () => {
   const [reviews, setReviews] = useState([]);
-  const [rerender, setRerender] = useState(false);
+  // const [rerender, setRerender] = useState(false);
 
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetch(`https://boiling-badlands-82832.herokuapp.com/all-reviews`)
+    fetch(`https://claytivity-server.onrender.com/all-reviews`)
       .then((res) => res.json())
       .then((data) => {
         setReviews(data);
         setLoading(false);
       });
-  }, [rerender]);
+  }, []);
+
   return (
     <div className='py-16'>
       <h1 className='text-center text-3xl md:text-4xl font-semibold pb-16'>
@@ -31,7 +32,7 @@ const Reviews = () => {
       ) : (
         <Carousel>
           {reviews.map((review) => (
-            <Carousel.Item>
+            <Carousel.Item key={review._id}>
               <SingleReview key={review._id} review={review}></SingleReview>
             </Carousel.Item>
           ))}

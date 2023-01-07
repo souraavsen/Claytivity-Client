@@ -10,7 +10,7 @@ const UserDashboard = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetch(`https://boiling-badlands-82832.herokuapp.com/all-orders`)
+    fetch(`https://claytivity-server.onrender.com/all-orders`)
       .then((res) => res.json())
       .then((data) => {
         setOrders(data);

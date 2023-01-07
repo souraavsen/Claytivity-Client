@@ -38,7 +38,7 @@ const AddReview = () => {
     const permission = window.confirm("Review added successfully.");
     if (permission) {
       axios
-        .post("https://boiling-badlands-82832.herokuapp.com/add-review", data)
+        .post("https://claytivity-server.onrender.com/add-review", data)
         .then((res) => {
           setReviewdata(initial);
           e.target.reset();

@@ -13,7 +13,7 @@ const AddAdmin = () => {
     const permission = window.confirm(`Are you sure ? Add ${email} as Admin ?`);
     if (permission) {
       axios
-        .put("https://boiling-badlands-82832.herokuapp.com/users/admin", {
+        .put("https://claytivity-server.onrender.com/users/admin", {
           email: email,
         })
         .then((res) => {

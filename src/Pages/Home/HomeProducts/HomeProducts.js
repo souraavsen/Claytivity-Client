@@ -7,7 +7,7 @@ const HomeProducts = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetch(`https://boiling-badlands-82832.herokuapp.com/all-products`)
+    fetch(`https://claytivity-server.onrender.com/all-products`)
       .then((res) => res.json())
       .then((data) => {
         setAllproducts(data);

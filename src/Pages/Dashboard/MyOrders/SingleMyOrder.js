@@ -1,6 +1,9 @@
 import React from "react";
+import { useHistory } from "react-router-dom";
 
 const SingleMyOrder = ({ order, deleteSingleOrder }) => {
+  const history = useHistory();
+
   return (
     <div>
       <div className='lg:flex justify-center rounded-tl-lg rounded-tr-lg rounded-br-lg shadow-md'>
@@ -56,6 +59,9 @@ const SingleMyOrder = ({ order, deleteSingleOrder }) => {
                 <div className=''>
                   <button
                     className='px-3 font-semibold py-1 rounded-tl-lg rounded-tr-lg rounded-br-lg hover:bg-opacity-60 my-2 md:my-0 bg-yellow-700 bg-opacity-70 text-white'
+                    onClick={() => {
+                      history.push(`/dashboard/pay/${order._id}`);
+                    }}
                   >
                     Pay
                   </button>

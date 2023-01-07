@@ -7,7 +7,7 @@ const ManageAllProducts = () => {
   const [rerender, setRerender] = useState(false);
 
   useEffect(() => {
-    fetch(`https://boiling-badlands-82832.herokuapp.com/all-products`)
+    fetch(`https://claytivity-server.onrender.com/all-products`)
       .then((res) => res.json())
       .then((data) => {
         setAllproducts(data);
@@ -18,12 +18,9 @@ const ManageAllProducts = () => {
   const deleteProduct = (id) => {
     const permission = window.confirm("Are you sure want to remove ?");
     if (permission) {
-      fetch(
-        `https://boiling-badlands-82832.herokuapp.com/delete-product/${id}`,
-        {
-          method: "DELETE",
-        }
-      )
+      fetch(`https://claytivity-server.onrender.com/delete-product/${id}`, {
+        method: "DELETE",
+      })
         .then((res) => res.json())
         .then((data) => {
           setRerender(!rerender);

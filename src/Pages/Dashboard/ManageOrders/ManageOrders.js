@@ -9,7 +9,7 @@ const ManageOrders = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetch(`https://boiling-badlands-82832.herokuapp.com/all-orders`)
+    fetch(`https://claytivity-server.onrender.com/all-orders`)
       .then((res) => res.json())
       .then((data) => {
         setOrders(data);
@@ -20,7 +20,7 @@ const ManageOrders = () => {
   const deleteSingleOrder = (id) => {
     const permission = window.confirm("Are you sure want to remove ?");
     if (permission) {
-      fetch(`https://boiling-badlands-82832.herokuapp.com/remove-order/${id}`, {
+      fetch(`https://claytivity-server.onrender.com/remove-order/${id}`, {
         method: "DELETE",
       })
         .then((res) => res.json())
@@ -38,10 +38,7 @@ const ManageOrders = () => {
     );
     if (permission) {
       axios
-        .put(
-          `https://boiling-badlands-82832.herokuapp.com/order/update/${id}`,
-          data
-        )
+        .put(`https://claytivity-server.onrender.com/order/update/${id}`, data)
         .then((res) => {
           setRerender(!rerender);
         });

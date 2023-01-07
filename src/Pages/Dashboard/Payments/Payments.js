@@ -9,14 +9,13 @@ const Payments = () => {
   const { user } = useAuth();
 
   useEffect(() => {
-    fetch(`https://boiling-badlands-82832.herokuapp.com/all-orders`)
+    fetch(`https://claytivity-server.onrender.com/all-orders`)
       .then((res) => res.json())
       .then((data) => {
         setOrders(data);
         setLoading(false);
       });
   }, [rerender]);
-
 
   return (
     <div className='w-8/12 min-h-screen mt-24 p-12 2xl:-mt-36 2xl:-mb-60 bg-white text-center shadow-md rounded-tl-lg rounded-tr-lg rounded-br-lg'>
@@ -33,7 +32,7 @@ const Payments = () => {
             ))}
           </div> */}
         </div>
-        
+
         <img
           className='pt-4 mx-auto'
           src='https://web.programming-hero.com/static/media/ssl-commerce.1d268dce.png'

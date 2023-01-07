@@ -11,7 +11,7 @@ const AdminDashboard = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetch(`https://boiling-badlands-82832.herokuapp.com/all-orders`)
+    fetch(`https://claytivity-server.onrender.com/all-orders`)
       .then((res) => res.json())
       .then((data) => {
         setOrders(data);
@@ -19,7 +19,7 @@ const AdminDashboard = () => {
       });
   }, []);
   useEffect(() => {
-    fetch(`https://boiling-badlands-82832.herokuapp.com/all-products`)
+    fetch(`https://claytivity-server.onrender.com/all-products`)
       .then((res) => res.json())
       .then((data) => {
         setProducts(data);
@@ -108,8 +108,8 @@ const AdminDashboard = () => {
                 }}
                 rootProps={{ "data-testid": "3" }}
               />
-                
-                {/* Income Graph */}
+
+              {/* Income Graph */}
               <Chart
                 className='graph_container mx-auto w-full mt-4'
                 chartType='LineChart'

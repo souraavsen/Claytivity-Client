@@ -119,16 +119,16 @@ export default function Dashboard() {
             <MenuIcon />
           </IconButton>
           <Box className='ml-auto flex justify-center items-center py-4 md:pl-28'>
-            <Typography
+            <Link
+              to='/dashboard'
               className='text-black border-b-2 border-transparent hover:border-yellow-700'
-              noWrap
-              component='div'
+              // nowrap
             >
               Dashboard
-            </Typography>
+            </Link>
             <Link
               to='/'
-              className='mx-4 hidden md:block text-black border-b-2 border-transparent hover:border-yellow-700'
+              className='mx-4 px-0.5 hidden md:block text-black border-b-2 border-transparent hover:border-yellow-700'
             >
               Home
             </Link>
@@ -174,9 +174,6 @@ export default function Dashboard() {
                     </button>
                   </div>
                 </div>
-                {/* <h4 className='text-black my-2 md:my-0'>
-                      {user?.displayName}
-                    </h4> */}
               </Box>
               <Box className='my-auto'>
                 <Link
@@ -238,19 +235,9 @@ export default function Dashboard() {
             )}
           </IconButton>
         </DrawerHeader>
-        <Divider />
 
         {admin && (
           <>
-            <Link className='text-black hover:text-black' to={`${url}`}>
-              <ListItem button>
-                <ListItemIcon>
-                  <i className='fas fa-chart-line'></i>
-                </ListItemIcon>
-                Dashboard
-              </ListItem>
-            </Link>
-
             <Link
               className='text-black hover:text-black'
               to={`${url}/add-product`}
@@ -301,19 +288,11 @@ export default function Dashboard() {
           </>
         )}
 
-        <Divider />
 
         {!admin && (
           <>
-            <Link className='text-black hover:text-black' to={`${url}`}>
-              <ListItem button>
-                <ListItemIcon>
-                  <i className='fas fa-chart-line'></i>
-                </ListItemIcon>
-                Dashboard
-              </ListItem>
-            </Link>
-
+          <Divider className="mt-2" />
+          <Divider/>
             <Link
               className='text-black hover:text-black'
               to={`${url}/myorders`}
@@ -349,7 +328,6 @@ export default function Dashboard() {
                 Payments
               </ListItem>
             </Link>
-            <Divider />
           </>
         )}
 
@@ -372,21 +350,6 @@ export default function Dashboard() {
             Explore products
           </ListItem>
         </Link>
-
-        {user?.email && (
-          <Link
-            className='text-black hover:text-black'
-            to='/'
-            onClick={googleSignOut}
-          >
-            <ListItem button>
-              <ListItemIcon>
-                <i className='fas fa-sign-out-alt'></i>
-              </ListItemIcon>
-              <ListItemText primary={"Sign Out"} />
-            </ListItem>
-          </Link>
-        )}
       </Drawer>
       <Main
         open={open}

@@ -7,6 +7,7 @@ import Icons from '../../../assets/Icons/Icons'
 
 
 const Checkout = ({ orderDetails }) => {
+  console.log(orderDetails);
   const stripe = useStripe();
   const elements = useElements();
   const { user } = useAuth();
@@ -52,7 +53,6 @@ const Checkout = ({ orderDetails }) => {
     });
 
     if (error) {
-      console.log("[error]", error);
       setMessage(error.message);
       setProcessing(false);
     } else {
@@ -60,7 +60,6 @@ const Checkout = ({ orderDetails }) => {
     }
 
     //Confirm Payment
-    console.log("ACCTUAL clientSecret", clientSecret);
     const { paymentIntent, error: intentError } =
       await stripe.confirmCardPayment(clientSecret, {
         payment_method: {

@@ -38,33 +38,28 @@ const NavbarSection = () => {
             id='basic-navbar-nav'
           >
             <Nav className='mx-auto flex flex-col md:flex-row justify-center items-start'>
+              {/* <Link */}
               {user?.email && (
-                <Nav.Link>
-                  <Link
-                    
-                    to='/dashboard'
-                    className='mr-4 text-black border-b-2 border-transparent hover:border-yellow-700'
-                  >
-                    Dashboard
-                  </Link>
-                </Nav.Link>
+                <Link
+                  to='/dashboard'
+                  className='mr-4 text-black border-b-2 border-transparent hover:border-yellow-700 my-auto'
+                >
+                  Dashboard
+                </Link>
               )}
-              <Nav.Link>
-                <Link
-                  to='/'
-                  className='mr-4 text-black border-b-2 border-transparent hover:border-yellow-700'
-                >
-                  Home
-                </Link>
-              </Nav.Link>
-              <Nav.Link>
-                <Link
-                  to='/all-products'
-                  className='mr-4 text-black border-b-2 border-transparent hover:border-yellow-700'
-                >
-                  Explore Products
-                </Link>
-              </Nav.Link>
+              {/* </Link> */}
+              <Link
+                to='/'
+                className='mx-4 text-black border-b-2 border-transparent hover:border-yellow-700 my-auto'
+              >
+                Home
+              </Link>
+              <Link
+                to='/all-products'
+                className='text-black border-b-2 border-transparent hover:border-yellow-700 my-auto'
+              >
+                Explore Products
+              </Link>
             </Nav>
             <Nav>
               {user?.email && (

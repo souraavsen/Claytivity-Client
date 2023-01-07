@@ -29,10 +29,7 @@ const AddProduct = () => {
     e.preventDefault();
 
     axios
-      .post(
-        "https://boiling-badlands-82832.herokuapp.com/add-product",
-        productdata
-      )
+      .post("https://claytivity-server.onrender.com/add-product", productdata)
       .then((res) => {
         setProductdata(initial);
         setIfsaved(true);
@@ -119,7 +116,6 @@ const AddProduct = () => {
               value={productdata.img}
               onChange={(e) => handleproductdata(e)}
             /> */}
-            
           </div>
 
           <div className='w-11/12 lg:w-full mx-auto md:w-1/2 px-3 pb-3'>
